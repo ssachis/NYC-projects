@@ -78,8 +78,8 @@ h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:36px;letter-sp
 .turn:hover{color:var(--ink)}
 .links a:focus-visible,.turn:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
 .photo{transform:rotateY(180deg);background:var(--paper)}
-.photo img{display:block;width:100%;flex:1;min-height:0;object-fit:cover;object-position:top}
-.photo .turn{padding:12px 20px 14px;align-self:stretch;justify-content:space-between;border-top:1px solid var(--line)}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:16/10;flex:none;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
+.photo .turn{flex:1;padding:16px 20px 18px;align-self:stretch;align-items:center;justify-content:space-between}
 .photo .turn span{display:inline-flex;align-items:center;gap:6px}
 .photo .turn b{font-family:'Fraunces',Georgia,serif;font-size:20px;font-weight:600;color:var(--ink)}
 @media (prefers-reduced-motion: reduce){.flip-inner{transition:none}}
