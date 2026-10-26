@@ -67,6 +67,7 @@ h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:36px;letter-sp
 .meta{display:flex;flex-wrap:wrap;gap:6px;padding-right:36px}
 .tag{font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--tag);color:var(--muted)}
 h3{font-size:22px;font-weight:700;margin:2px 0 0;letter-spacing:-.01em}
+.card .shot{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:12px;border:1px solid var(--line);background:var(--tag)}
 .card p{margin:0;color:var(--muted);font-size:15.5px;flex:1}
 .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .links a{font-size:14px;font-weight:600;text-decoration:none;padding:8px 14px;border-radius:12px;border:1px solid var(--line)}
@@ -146,15 +147,9 @@ footer em{font-family:'Fraunces',Georgia,serif;font-size:17px;color:var(--ink)}
     <div class="grid">
       <article class="card">
         <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
-        <div class="meta"><span class="tag">Hackathon</span><span class="tag">Sep 2026</span></div>
-        <h3>Signal</h3>
-        <p>Screens a batch of resumes and flags hidden prompt injections, near-duplicate submissions and timeline contradictions, with the evidence for each one.</p>
-        <div class="links"><a class="primary" href="https://ssachis.github.io/signal/">Try the demo</a><a href="https://github.com/ssachis/signal">GitHub</a></div>
-      </article>
-      <article class="card">
-        <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
         <div class="meta"><span class="tag">Hackathon</span><span class="tag">Oct 2026</span></div>
         <h3>LookUp NYC</h3>
+        <img class="shot" src="img/lookup-nyc.jpg" alt="LookUp NYC front page: NYC is talking. Look up and listen." width="1280" height="800" loading="lazy">
         <p>A walking guide that shows you exactly where to look on New York’s buildings, then plays the story behind each one. Recorded narration, an I Spy collection and walks to share.</p>
         <div class="links"><a class="primary" href="https://aegisherit.github.io/LookUp-NYC/">Try it live</a><a href="https://github.com/AegisHerit/LookUp-NYC">GitHub</a></div>
       </article>
@@ -162,8 +157,17 @@ footer em{font-family:'Fraunces',Georgia,serif;font-size:17px;color:var(--ink)}
         <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
         <div class="meta"><span class="tag">Money Talks 2</span><span class="tag">Oct 2026</span></div>
         <h3>BusyQueue</h3>
+        <img class="shot" src="img/busyqueue.jpg" alt="BusyQ dashboard showing billing mistakes found and cash coming due" width="1280" height="800" loading="lazy">
         <p>An AI back office for small businesses. Snap a photo or PDF of a vendor invoice and it becomes an editable record, with any uncertain fields flagged for review.</p>
         <div class="links"><a class="primary" href="https://m-talks2.buddhsen-work.workers.dev/">Try it live</a><a href="https://github.com/ssachis/BusyQueue">GitHub</a></div>
+      </article>
+      <article class="card">
+        <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
+        <div class="meta"><span class="tag">Hackathon</span><span class="tag">Sep 2026</span></div>
+        <h3>Signal</h3>
+        <img class="shot" src="img/signal.jpg" alt="Signal front page in demo mode, ready to analyze a sample batch of resumes" width="1280" height="800" loading="lazy">
+        <p>Screens a batch of resumes and flags hidden prompt injections, near-duplicate submissions and timeline contradictions, with the evidence for each one.</p>
+        <div class="links"><a class="primary" href="https://ssachis.github.io/signal/">Try the demo</a><a href="https://github.com/ssachis/signal">GitHub</a></div>
       </article>
     </div>
   </section>
@@ -175,6 +179,7 @@ footer em{font-family:'Fraunces',Georgia,serif;font-size:17px;color:var(--ink)}
         <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
         <div class="meta"><span class="tag">MS-CEI</span><span class="tag">Fall 2026</span></div>
         <h3>Last Commit</h3>
+        <img class="shot" src="img/last-commit.jpg" alt="Last Commit welcome screen: Welcome to John’s World" width="1280" height="800" loading="lazy">
         <p>They leave. Their world of work stays. A design prototype that helps a new developer find their way around a codebase whose owner has left, guided by an agent that interviewed him before he went.</p>
         <div class="links"><a class="primary" href="https://ssachis.github.io/last-commit/">Try it live</a><a href="https://github.com/ssachis/last-commit">GitHub</a></div>
       </article>
@@ -182,6 +187,7 @@ footer em{font-family:'Fraunces',Georgia,serif;font-size:17px;color:var(--ink)}
         <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
         <div class="meta"><span class="tag">Research project</span><span class="tag">Fall 2026</span></div>
         <h3>FusionEdges</h3>
+        <img class="shot" src="img/fusionedges.jpg" alt="FusionEdges front page: Borrow a navbar from any repo" width="1280" height="800" loading="lazy">
         <p>Tests whether giving a coding agent a compatibility report first makes cross-repo changes safer and cheaper, like adding a React navbar to a Next.js site.</p>
         <div class="links"><a class="primary" href="https://github.com/ssachis/FusionEdges">View on GitHub</a></div>
       </article>
