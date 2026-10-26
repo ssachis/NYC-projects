@@ -66,23 +66,22 @@ h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:36px;letter-sp
 .flip-inner{display:grid;height:100%;transition:transform .6s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
 .flip.flipped .flip-inner{transform:rotateY(180deg)}
 .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:20px;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
-.front{background:var(--paper);cursor:inherit}
-.front img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
-.front .name{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px 18px;flex:1}
-.front h3{margin:0;font-family:'Fraunces',Georgia,serif;font-size:24px;font-weight:600;letter-spacing:-.01em}
-.hint{font-size:12px;font-weight:600;color:var(--muted);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
-.hint svg{width:16px;height:16px}
-.front:hover img{filter:saturate(1.08)}
-.front:focus-visible,.back .turn:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
-.back{transform:rotateY(180deg);background:var(--wall);padding:24px 22px 20px;gap:12px}
-.back .when{margin:0;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf)}
-.back h3{margin:0;font-family:'Fraunces',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-.01em}
-.back .line{margin:0;font-size:16px;line-height:1.55;color:var(--ink);flex:1}
+.details{background:var(--wall);padding:24px 22px 18px;gap:12px}
+.details .when{margin:0;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf)}
+.details h3{margin:0;font-family:'Fraunces',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-.01em}
+.details .line{margin:0;font-size:16px;line-height:1.55;color:var(--ink);flex:1}
 .links{display:flex;flex-wrap:wrap;gap:8px}
 .links a{font-size:14px;font-weight:600;text-decoration:none;padding:9px 15px;border-radius:12px;border:1px solid var(--ink);color:var(--ink);background:transparent}
 .links a.primary{background:var(--ink);color:var(--wall)}
-.links a:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
-.turn{align-self:flex-start;background:none;border:0;padding:4px 0;font:inherit;font-size:13px;font-weight:600;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.turn{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;background:none;border:0;padding:6px 0 0;font:inherit;font-size:13px;font-weight:600;color:var(--muted)}
+.turn svg{width:16px;height:16px}
+.turn:hover{color:var(--ink)}
+.links a:focus-visible,.turn:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
+.photo{transform:rotateY(180deg);background:var(--paper)}
+.photo img{display:block;width:100%;flex:1;min-height:0;object-fit:cover;object-position:top}
+.photo .turn{padding:12px 20px 14px;align-self:stretch;justify-content:space-between;border-top:1px solid var(--line)}
+.photo .turn span{display:inline-flex;align-items:center;gap:6px}
+.photo .turn b{font-family:'Fraunces',Georgia,serif;font-size:20px;font-weight:600;color:var(--ink)}
 @media (prefers-reduced-motion: reduce){.flip-inner{transition:none}}
 .w1{--wall:#f6ddd2}.w2{--wall:#e0eedb}.w3{--wall:#f8eac2}.w4{--wall:#e6e0f4}.w5{--wall:#dbe9f3}
 @media (prefers-color-scheme: dark){
@@ -91,7 +90,7 @@ h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:36px;letter-sp
 
 /* butterfly cursor (touch screens have no cursor, so nothing changes there) */
 html,body{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 60 48'%3E%3Cpath d='M30 24C22 6 4 2 3 14c-1 9 13 12 27 10Z' fill='%23e07a5f' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 24C38 6 56 2 57 14c1 9-13 12-27 10Z' fill='%23e07a5f' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 25C20 30 10 40 16 45c5 3 12-8 14-20Z' fill='%23f2c14e' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 25c10 5 20 15 14 20-5 3-12-8-14-20Z' fill='%23f2c14e' stroke='%231f3326' stroke-width='2'/%3E%3Crect x='28' y='10' width='4' height='28' rx='2' fill='%231f3326'/%3E%3C/svg%3E") 16 16, auto}
-a,button,.front{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 60 48'%3E%3Cpath d='M30 24C22 6 4 2 3 14c-1 9 13 12 27 10Z' fill='%23b39ddb' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 24C38 6 56 2 57 14c1 9-13 12-27 10Z' fill='%23b39ddb' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 25C20 30 10 40 16 45c5 3 12-8 14-20Z' fill='%238fae8b' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 25c10 5 20 15 14 20-5 3-12-8-14-20Z' fill='%238fae8b' stroke='%231f3326' stroke-width='2'/%3E%3Crect x='28' y='10' width='4' height='28' rx='2' fill='%231f3326'/%3E%3C/svg%3E") 16 16, pointer}
+a,button,.flip{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 60 48'%3E%3Cpath d='M30 24C22 6 4 2 3 14c-1 9 13 12 27 10Z' fill='%23b39ddb' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 24C38 6 56 2 57 14c1 9-13 12-27 10Z' fill='%23b39ddb' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 25C20 30 10 40 16 45c5 3 12-8 14-20Z' fill='%238fae8b' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 25c10 5 20 15 14 20-5 3-12-8-14-20Z' fill='%238fae8b' stroke='%231f3326' stroke-width='2'/%3E%3Crect x='28' y='10' width='4' height='28' rx='2' fill='%231f3326'/%3E%3C/svg%3E") 16 16, pointer}
 
 /* closing quote */
 .closing{padding:72px 0 0}
@@ -161,46 +160,46 @@ footer em{font-family:'Fraunces',Georgia,serif;font-size:17px;color:var(--ink)}
     <div class="cards">
       <article class="flip w1">
         <div class="flip-inner">
-          <div class="face front" role="button" tabindex="0" aria-expanded="false" aria-label="LookUp NYC: show details">
-            <img src="img/lookup-nyc.jpg" alt="LookUp NYC front page: NYC is talking. Look up and listen." width="1280" height="800" loading="lazy">
-            <div class="name"><h3>LookUp NYC</h3><span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</span></div>
-          </div>
-          <div class="face back" inert>
+          <div class="face details">
             <p class="when">Oct 2026 · Hackathon</p>
             <h3>LookUp NYC</h3>
             <p class="line">A walking guide that shows you exactly where to look on New York’s buildings, then plays the story behind each one.</p>
             <div class="links"><a class="primary" href="https://aegisherit.github.io/LookUp-NYC/">Try it live</a><a href="https://github.com/AegisHerit/LookUp-NYC">GitHub</a></div>
-            <button class="turn" type="button">Flip back</button>
+            <button class="turn" type="button" aria-label="Flip to see a screenshot of LookUp NYC"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</button>
+          </div>
+          <div class="face photo" inert>
+            <img src="img/lookup-nyc.jpg" alt="LookUp NYC front page: NYC is talking. Look up and listen." width="1280" height="800" loading="lazy">
+            <button class="turn" type="button" aria-label="Flip back to the details of LookUp NYC"><b>LookUp NYC</b><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Flip back</span></button>
           </div>
         </div>
       </article>
       <article class="flip w2">
         <div class="flip-inner">
-          <div class="face front" role="button" tabindex="0" aria-expanded="false" aria-label="BusyQueue: show details">
-            <img src="img/busyqueue.jpg" alt="BusyQ dashboard showing billing mistakes found and cash coming due" width="1280" height="800" loading="lazy">
-            <div class="name"><h3>BusyQueue</h3><span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</span></div>
-          </div>
-          <div class="face back" inert>
+          <div class="face details">
             <p class="when">Oct 2026 · Money Talks 2</p>
             <h3>BusyQueue</h3>
             <p class="line">An AI back office for small businesses: snap a vendor invoice and it becomes an editable record, with uncertain fields flagged.</p>
             <div class="links"><a class="primary" href="https://m-talks2.buddhsen-work.workers.dev/">Try it live</a><a href="https://github.com/ssachis/BusyQueue">GitHub</a></div>
-            <button class="turn" type="button">Flip back</button>
+            <button class="turn" type="button" aria-label="Flip to see a screenshot of BusyQueue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</button>
+          </div>
+          <div class="face photo" inert>
+            <img src="img/busyqueue.jpg" alt="BusyQ dashboard showing billing mistakes found and cash coming due" width="1280" height="800" loading="lazy">
+            <button class="turn" type="button" aria-label="Flip back to the details of BusyQueue"><b>BusyQueue</b><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Flip back</span></button>
           </div>
         </div>
       </article>
       <article class="flip w3">
         <div class="flip-inner">
-          <div class="face front" role="button" tabindex="0" aria-expanded="false" aria-label="Signal: show details">
-            <img src="img/signal.jpg" alt="Signal front page in demo mode, ready to analyze a sample batch of resumes" width="1280" height="800" loading="lazy">
-            <div class="name"><h3>Signal</h3><span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</span></div>
-          </div>
-          <div class="face back" inert>
+          <div class="face details">
             <p class="when">Sep 2026 · Hackathon</p>
             <h3>Signal</h3>
             <p class="line">Screens a batch of resumes for hidden prompt injections and duplicate submissions, with the evidence for each.</p>
             <div class="links"><a class="primary" href="https://ssachis.github.io/signal/">Try the demo</a><a href="https://github.com/ssachis/signal">GitHub</a></div>
-            <button class="turn" type="button">Flip back</button>
+            <button class="turn" type="button" aria-label="Flip to see a screenshot of Signal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</button>
+          </div>
+          <div class="face photo" inert>
+            <img src="img/signal.jpg" alt="Signal front page in demo mode, ready to analyze a sample batch of resumes" width="1280" height="800" loading="lazy">
+            <button class="turn" type="button" aria-label="Flip back to the details of Signal"><b>Signal</b><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Flip back</span></button>
           </div>
         </div>
       </article>
@@ -212,31 +211,31 @@ footer em{font-family:'Fraunces',Georgia,serif;font-size:17px;color:var(--ink)}
     <div class="cards">
       <article class="flip w4">
         <div class="flip-inner">
-          <div class="face front" role="button" tabindex="0" aria-expanded="false" aria-label="Last Commit: show details">
-            <img src="img/last-commit.jpg" alt="Last Commit welcome screen: Welcome to John’s World" width="1280" height="800" loading="lazy">
-            <div class="name"><h3>Last Commit</h3><span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</span></div>
-          </div>
-          <div class="face back" inert>
+          <div class="face details">
             <p class="when">Fall 2026 · MS-CEI</p>
             <h3>Last Commit</h3>
             <p class="line">They leave. Their world of work stays. A design prototype that helps a new developer find their way around code whose owner has left.</p>
             <div class="links"><a class="primary" href="https://ssachis.github.io/last-commit/">Try it live</a><a href="https://github.com/ssachis/last-commit">GitHub</a></div>
-            <button class="turn" type="button">Flip back</button>
+            <button class="turn" type="button" aria-label="Flip to see a screenshot of Last Commit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</button>
+          </div>
+          <div class="face photo" inert>
+            <img src="img/last-commit.jpg" alt="Last Commit welcome screen: Welcome to John’s World" width="1280" height="800" loading="lazy">
+            <button class="turn" type="button" aria-label="Flip back to the details of Last Commit"><b>Last Commit</b><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Flip back</span></button>
           </div>
         </div>
       </article>
       <article class="flip w5">
         <div class="flip-inner">
-          <div class="face front" role="button" tabindex="0" aria-expanded="false" aria-label="FusionEdges: show details">
-            <img src="img/fusionedges.jpg" alt="FusionEdges front page: Borrow a navbar from any repo" width="1280" height="800" loading="lazy">
-            <div class="name"><h3>FusionEdges</h3><span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</span></div>
-          </div>
-          <div class="face back" inert>
+          <div class="face details">
             <p class="when">Fall 2026 · Research project</p>
             <h3>FusionEdges</h3>
             <p class="line">Tests whether giving a coding agent a compatibility report first makes cross-repo changes safer and cheaper.</p>
             <div class="links"><a class="primary" href="https://github.com/ssachis/FusionEdges">GitHub</a></div>
-            <button class="turn" type="button">Flip back</button>
+            <button class="turn" type="button" aria-label="Flip to see a screenshot of FusionEdges"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</button>
+          </div>
+          <div class="face photo" inert>
+            <img src="img/fusionedges.jpg" alt="FusionEdges front page: Borrow a navbar from any repo" width="1280" height="800" loading="lazy">
+            <button class="turn" type="button" aria-label="Flip back to the details of FusionEdges"><b>FusionEdges</b><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Flip back</span></button>
           </div>
         </div>
       </article>
@@ -256,19 +255,17 @@ footer em{font-family:'Fraunces',Georgia,serif;font-size:17px;color:var(--ink)}
   </footer>
 </div>
 <script>
-// Flip cards: tap/click (or Enter/Space) the photo to see the details; "Flip back" or Escape returns.
+// Flip cards: the details are on the front; "Tap to flip" (or a tap anywhere but a link) shows the
+// screenshot on the back, and tapping the back or Escape turns it over again.
 document.querySelectorAll('.flip').forEach(card => {
-  const front = card.querySelector('.front'), back = card.querySelector('.back');
+  const front = card.querySelector('.details'), back = card.querySelector('.photo');
   const set = on => {
     card.classList.toggle('flipped', on);
-    front.setAttribute('aria-expanded', on);
     back.inert = !on; front.inert = on;
-    (on ? back.querySelector('a, .turn') : front).focus({ preventScroll: true });
+    (on ? back : front).querySelector('.turn').focus({ preventScroll: true });
   };
-  front.addEventListener('click', () => set(true));
-  front.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); set(true); } });
-  back.querySelector('.turn').addEventListener('click', () => set(false));
-  back.addEventListener('click', e => { if (!e.target.closest('a, .turn')) set(false); });
+  front.addEventListener('click', e => { if (!e.target.closest('a')) set(true); });
+  back.addEventListener('click', () => set(false));
   card.addEventListener('keydown', e => { if (e.key === 'Escape' && card.classList.contains('flipped')) set(false); });
 });
 </script>
