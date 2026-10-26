@@ -28,7 +28,7 @@ const fs = require('fs');
     mark('home'); await page.getByText('Enter John’s World').click(); await W(3500); await smooth(350, 1800); await W(1500);
     mark('repo'); await nav('Repositories'); await W(3000); await smooth(420, 2000); await W(1800);
     mark('ask'); await nav('Advice'); await W(1500);
-    await page.locator('main button').filter({ has: page.locator('strong') }).first().click(); await W(5000);
+    await page.getByRole('button', { name: /geo rule exclude Canada/ }).click(); await W(5500);
     mark('first'); await nav('First commit'); await W(1600);
     await page.locator('button.pick').first().click(); await W(2200);
     for (let i = 0; i < 2; i++) { const b = page.locator('button.step-done').first(); if (await b.count()) { await b.click(); await W(1500); } }
