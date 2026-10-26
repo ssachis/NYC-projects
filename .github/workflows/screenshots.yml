@@ -21,7 +21,7 @@ jobs:
           (cd /tmp/signal && python3 -m http.server 8101 --bind 127.0.0.1 > /tmp/sig.log 2>&1 &)
           (cd /tmp/fe && BROWSER=true python3 -m fusionedges.server > /tmp/fe.log 2>&1 &)
           sleep 6; tail -5 /tmp/fe.log || true
-      - run: node scripts/shots.js | tee img/shots-log.txt
+      - run: mkdir -p img && node scripts/shots.js | tee img/shots-log.txt
       - name: Save
         run: |
           git config user.name "github-actions[bot]"
