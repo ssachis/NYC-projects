@@ -1,0 +1,30 @@
+name: Project screenshots
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/shots.js', '.github/workflows/screenshots.yml']
+permissions:
+  contents: write
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm i --no-save playwright@1.48.2 && npx playwright install --with-deps chromium
+      - name: Start Signal and FusionEdges locally
+        run: |
+          git clone -q --depth 1 https://github.com/ssachis/signal /tmp/signal
+          git clone -q --depth 1 https://github.com/ssachis/FusionEdges /tmp/fe
+          (cd /tmp/signal && python3 -m http.server 8101 --bind 127.0.0.1 > /tmp/sig.log 2>&1 &)
+          (cd /tmp/fe && BROWSER=true python3 -m fusionedges.server > /tmp/fe.log 2>&1 &)
+          sleep 6; tail -5 /tmp/fe.log || true
+      - run: node scripts/shots.js | tee img/shots-log.txt
+      - name: Save
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add img
+          git diff --cached --quiet || (git commit -m "Project screenshots" && git push)
