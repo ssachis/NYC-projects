@@ -150,7 +150,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
         </div>
       </li>
     </ol>
-    <button class="see-all" type="button" aria-expanded="false" aria-controls="more-hackathons">See all <span>(1 more)</span></button>
+    <button class="see-all" type="button" aria-expanded="false" aria-controls="more-hackathons">See all</button>
   </section>
 
   <section aria-labelledby="classes">
@@ -291,7 +291,7 @@ document.querySelectorAll('.see-all').forEach(b => {
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', open);
     more.hidden = !open;
-    b.innerHTML = open ? 'Show less' : 'See all <span>(1 more)</span>';
+    b.innerHTML = open ? 'Show less' : 'See all';
     if (open && !matchMedia('(prefers-reduced-motion: reduce)').matches)
       more.animate([{ opacity: 0, transform: 'translateY(-10px)' }, { opacity: 1, transform: 'none' }], { duration: 380, easing: 'cubic-bezier(.2,.7,.2,1)' });
   });
