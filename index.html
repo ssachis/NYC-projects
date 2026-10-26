@@ -4,85 +4,158 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>All that I have built since coming to NYC — Sachi Singh</title>
-<meta name="description" content="Hackathon and class projects Sachi Singh has built in New York since September 2026.">
+<meta name="description" content="A garden of hackathon and class projects Sachi Singh has built in New York since September 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f6f3ec; --paper:#fffdf8; --ink:#1b2236; --muted:#5d6475; --line:#e4ddcf;
-  --accent:#2f4fd8; --taxi:#f2b705; --tag:#eef1fb;
+  --bg:#f5f1e6; --paper:#fffcf3; --ink:#1f3326; --muted:#5a6a5e; --line:#e2dccb;
+  --leaf:#2f6b45; --sage:#8fae8b; --petal:#e07a5f; --sun:#f2c14e; --lilac:#b39ddb; --tag:#ecf1e6;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#13161f; --paper:#1b1f2b; --ink:#eef0f6; --muted:#a3a9b8; --line:#2c3242;
-    --accent:#8ea2ff; --taxi:#f2c230; --tag:#252b3b;
+    --bg:#121a15; --paper:#1a241d; --ink:#eef3ec; --muted:#a9b8ab; --line:#2b3a2f;
+    --leaf:#7fcf98; --sage:#5d7d61; --petal:#f09a80; --sun:#f2c94e; --lilac:#c6b3ec; --tag:#223027;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#13161f; --paper:#1b1f2b; --ink:#eef0f6; --muted:#a3a9b8; --line:#2c3242;
-  --accent:#8ea2ff; --taxi:#f2c230; --tag:#252b3b;
+  --bg:#121a15; --paper:#1a241d; --ink:#eef3ec; --muted:#a9b8ab; --line:#2b3a2f;
+  --leaf:#7fcf98; --sage:#5d7d61; --petal:#f09a80; --sun:#f2c94e; --lilac:#c6b3ec; --tag:#223027;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'DM Sans',system-ui,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
 a{color:inherit}
 .wrap{max-width:980px;margin:0 auto;padding:0 24px}
-header{padding:88px 0 56px;border-bottom:1px solid var(--line)}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 18px;display:flex;align-items:center;gap:10px}
-.eyebrow::before{content:"";width:22px;height:10px;border-radius:3px;background:var(--taxi)}
-h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:clamp(40px,7vw,72px);line-height:1.02;letter-spacing:-.02em;margin:0;max-width:14ch}
-.lede{margin:24px 0 0;font-size:19px;color:var(--muted);max-width:52ch}
-.since{display:inline-block;margin-top:28px;font-size:14px;font-weight:600;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
-section{padding:64px 0 8px}
-.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:24px}
+
+/* header */
+header{position:relative;padding:84px 0 0}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--leaf);margin:0 0 18px}
+h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:clamp(40px,7vw,70px);line-height:1.03;letter-spacing:-.02em;margin:0;max-width:14ch}
+.since{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-size:14px;font-weight:600;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--paper)}
+.since svg{width:16px;height:16px}
+
+.quote{margin:48px 0 0;padding:28px 0 0 28px;border-left:3px solid var(--sage);max-width:640px}
+.quote p{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:clamp(21px,2.6vw,26px);line-height:1.45;margin:0}
+.quote p .bloom{color:var(--leaf);font-style:normal;font-weight:600}
+.quote cite{display:block;margin-top:14px;font-style:normal;font-size:14px;color:var(--muted)}
+
+/* butterflies */
+.flutter{position:absolute;pointer-events:none}
+.flutter svg{display:block}
+.b1{top:70px;right:4%;width:54px;animation:drift1 9s ease-in-out infinite}
+.b2{top:250px;right:22%;width:34px;animation:drift2 11s ease-in-out infinite}
+.b3{top:420px;right:8%;width:40px;animation:drift1 13s ease-in-out infinite reverse}
+.wing{transform-origin:50% 50%;animation:flap .5s ease-in-out infinite alternate}
+@keyframes flap{from{transform:scaleX(1)}to{transform:scaleX(.55)}}
+@keyframes drift1{0%,100%{transform:translate(0,0) rotate(-8deg)}50%{transform:translate(-26px,18px) rotate(6deg)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) rotate(10deg)}50%{transform:translate(20px,-14px) rotate(-6deg)}}
+@media (prefers-reduced-motion: reduce){.flutter,.wing{animation:none}}
+
+/* flower border */
+.bed{display:block;width:100%;height:96px;margin-top:40px}
+
+section{padding:56px 0 8px}
+.section-head{margin-bottom:24px}
 h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:36px;letter-spacing:-.01em;margin:0}
-.count{font-size:14px;color:var(--muted)}
+.section-head p{margin:4px 0 0;color:var(--muted);font-size:16px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px 24px 22px;display:flex;flex-direction:column;gap:12px;transition:transform .15s ease,box-shadow .15s ease}
-.card:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(27,34,54,.08)}
-.meta{display:flex;flex-wrap:wrap;gap:6px}
-.tag{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--tag);color:var(--muted)}
+.card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 24px 22px;display:flex;flex-direction:column;gap:12px;transition:transform .2s ease,box-shadow .2s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(31,51,38,.10)}
+.card .sprout{position:absolute;top:20px;right:20px;width:28px;height:28px;opacity:.9}
+.meta{display:flex;flex-wrap:wrap;gap:6px;padding-right:36px}
+.tag{font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--tag);color:var(--muted)}
 h3{font-size:22px;font-weight:700;margin:2px 0 0;letter-spacing:-.01em}
 .card p{margin:0;color:var(--muted);font-size:15.5px;flex:1}
 .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.links a{font-size:14px;font-weight:600;text-decoration:none;padding:8px 14px;border-radius:10px;border:1px solid var(--line)}
-.links a.primary{background:var(--accent);border-color:var(--accent);color:var(--paper)}
-.links a:hover{border-color:var(--accent)}
-.links a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-footer{margin-top:72px;padding:28px 0 48px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-@media (max-width:600px){
-  header{padding:56px 0 40px}
-  section{padding:48px 0 4px}
+.links a{font-size:14px;font-weight:600;text-decoration:none;padding:8px 14px;border-radius:12px;border:1px solid var(--line)}
+.links a.primary{background:var(--leaf);border-color:var(--leaf);color:var(--paper)}
+.links a:hover{border-color:var(--leaf)}
+.links a:focus-visible{outline:2px solid var(--leaf);outline-offset:2px}
+
+footer{margin-top:72px;padding:32px 0 48px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer em{font-family:'Fraunces',Georgia,serif;font-size:17px;color:var(--ink)}
+
+@media (max-width:640px){
+  header{padding-top:56px}
+  .b1{top:28px;right:2%;width:40px}
+  .b2,.b3{display:none}
+  .quote{padding-left:20px;margin-top:36px}
   h2{font-size:30px}
+  .bed{height:72px}
 }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="sprout" viewBox="0 0 32 32">
+      <path d="M16 30V15" stroke="var(--leaf)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+      <path d="M16 17C16 10 11 6 4 6c0 7 5 11 12 11Z" fill="var(--sage)"/>
+      <path d="M16 14c0-6 4-10 11-10 0 6-4 10-11 10Z" fill="var(--leaf)"/>
+    </symbol>
+  </defs>
+</svg>
+
 <div class="wrap">
   <header>
+    <div class="flutter b1" aria-hidden="true">
+      <svg viewBox="0 0 60 48"><g class="wing"><path d="M30 24C22 6 4 2 3 14c-1 9 13 12 27 10Z" fill="var(--petal)"/><path d="M30 24C38 6 56 2 57 14c1 9-13 12-27 10Z" fill="var(--petal)"/><path d="M30 25C20 30 10 40 16 45c5 3 12-8 14-20Z" fill="var(--sun)"/><path d="M30 25c10 5 20 15 14 20-5 3-12-8-14-20Z" fill="var(--sun)"/></g><rect x="28.6" y="12" width="2.8" height="26" rx="1.4" fill="var(--ink)"/></svg>
+    </div>
+    <div class="flutter b2" aria-hidden="true">
+      <svg viewBox="0 0 60 48"><g class="wing"><path d="M30 24C22 6 4 2 3 14c-1 9 13 12 27 10Z" fill="var(--lilac)"/><path d="M30 24C38 6 56 2 57 14c1 9-13 12-27 10Z" fill="var(--lilac)"/><path d="M30 25C20 30 10 40 16 45c5 3 12-8 14-20Z" fill="var(--sage)"/><path d="M30 25c10 5 20 15 14 20-5 3-12-8-14-20Z" fill="var(--sage)"/></g><rect x="28.6" y="12" width="2.8" height="26" rx="1.4" fill="var(--ink)"/></svg>
+    </div>
+    <div class="flutter b3" aria-hidden="true">
+      <svg viewBox="0 0 60 48"><g class="wing"><path d="M30 24C22 6 4 2 3 14c-1 9 13 12 27 10Z" fill="var(--sun)"/><path d="M30 24C38 6 56 2 57 14c1 9-13 12-27 10Z" fill="var(--sun)"/><path d="M30 25C20 30 10 40 16 45c5 3 12-8 14-20Z" fill="var(--petal)"/><path d="M30 25c10 5 20 15 14 20-5 3-12-8-14-20Z" fill="var(--petal)"/></g><rect x="28.6" y="12" width="2.8" height="26" rx="1.4" fill="var(--ink)"/></svg>
+    </div>
+
     <p class="eyebrow">Sachi Singh · New York</p>
     <h1>All that I have built since coming to NYC</h1>
-    <p class="lede">Hackathon builds and class projects, from my first weeks in the city onward.</p>
-    <span class="since">Starting September 2026</span>
+    <span class="since"><svg aria-hidden="true"><use href="#sprout"/></svg>Planted September 2026</span>
+
+    <blockquote class="quote">
+      <p>“Don’t waste your time chasing butterflies. <span class="bloom">Mend your garden</span>, and the butterflies will come to you. And even if they don’t, you will still have a beautiful garden.”</p>
+      <cite>Attributed to Mario Quintana</cite>
+    </blockquote>
+
+    <svg class="bed" viewBox="0 0 980 96" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <path d="M0 92H980" stroke="var(--line)" stroke-width="2"/>
+      <g stroke="var(--leaf)" stroke-width="2.5" stroke-linecap="round" fill="none">
+        <path d="M40 92V48"/><path d="M120 92V30"/><path d="M210 92V58"/><path d="M300 92V38"/><path d="M400 92V52"/><path d="M500 92V26"/><path d="M590 92V56"/><path d="M680 92V36"/><path d="M780 92V50"/><path d="M870 92V32"/><path d="M945 92V60"/>
+      </g>
+      <g fill="var(--sage)">
+        <ellipse cx="32" cy="70" rx="9" ry="4" transform="rotate(-30 32 70)"/><ellipse cx="128" cy="62" rx="10" ry="4" transform="rotate(30 128 62)"/><ellipse cx="292" cy="66" rx="10" ry="4" transform="rotate(-30 292 66)"/><ellipse cx="508" cy="58" rx="10" ry="4" transform="rotate(30 508 58)"/><ellipse cx="672" cy="66" rx="10" ry="4" transform="rotate(-30 672 66)"/><ellipse cx="878" cy="62" rx="10" ry="4" transform="rotate(30 878 62)"/>
+      </g>
+      <g>
+        <circle cx="40" cy="44" r="7" fill="var(--sun)"/><circle cx="120" cy="26" r="9" fill="var(--petal)"/><circle cx="120" cy="26" r="3.5" fill="var(--sun)"/>
+        <circle cx="210" cy="54" r="7" fill="var(--lilac)"/><circle cx="300" cy="34" r="9" fill="var(--sun)"/><circle cx="300" cy="34" r="3.5" fill="var(--petal)"/>
+        <circle cx="400" cy="48" r="7" fill="var(--petal)"/><circle cx="500" cy="22" r="10" fill="var(--lilac)"/><circle cx="500" cy="22" r="4" fill="var(--sun)"/>
+        <circle cx="590" cy="52" r="7" fill="var(--sun)"/><circle cx="680" cy="32" r="9" fill="var(--petal)"/><circle cx="680" cy="32" r="3.5" fill="var(--sun)"/>
+        <circle cx="780" cy="46" r="7" fill="var(--lilac)"/><circle cx="870" cy="28" r="9" fill="var(--sun)"/><circle cx="870" cy="28" r="3.5" fill="var(--petal)"/><circle cx="945" cy="56" r="6" fill="var(--petal)"/>
+      </g>
+    </svg>
   </header>
 
   <section aria-labelledby="hackathons">
-    <div class="section-head"><h2 id="hackathons">Hackathons</h2><span class="count">3 projects</span></div>
+    <div class="section-head"><h2 id="hackathons">Hackathons</h2><p>Seeds sown in a weekend.</p></div>
     <div class="grid">
       <article class="card">
+        <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
         <div class="meta"><span class="tag">Hackathon</span><span class="tag">Sep 2026</span></div>
         <h3>Signal</h3>
         <p>Screens a batch of resumes and flags hidden prompt injections, near-duplicate submissions and timeline contradictions, with the evidence for each one.</p>
         <div class="links"><a class="primary" href="https://github.com/ssachis/signal">View on GitHub</a></div>
       </article>
       <article class="card">
+        <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
         <div class="meta"><span class="tag">Hackathon</span><span class="tag">Oct 2026</span></div>
         <h3>LookUp NYC</h3>
         <p>A walking guide that shows you exactly where to look on New York’s buildings, then plays the story behind each one. Recorded narration, an I Spy collection and walks to share.</p>
         <div class="links"><a class="primary" href="https://aegisherit.github.io/LookUp-NYC/">Try it live</a><a href="https://github.com/AegisHerit/LookUp-NYC">GitHub</a></div>
       </article>
       <article class="card">
+        <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
         <div class="meta"><span class="tag">Money Talks 2</span><span class="tag">Oct 2026</span></div>
         <h3>BusyQueue</h3>
         <p>An AI back office for small businesses. Snap a photo or PDF of a vendor invoice and it becomes an editable record, with any uncertain fields flagged for review.</p>
@@ -92,15 +165,17 @@ footer{margin-top:72px;padding:28px 0 48px;border-top:1px solid var(--line);font
   </section>
 
   <section aria-labelledby="classes">
-    <div class="section-head"><h2 id="classes">Class projects</h2><span class="count">2 projects</span></div>
+    <div class="section-head"><h2 id="classes">Class projects</h2><p>Grown slowly, over a semester.</p></div>
     <div class="grid">
       <article class="card">
+        <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
         <div class="meta"><span class="tag">MS-CEI</span><span class="tag">Fall 2026</span></div>
         <h3>Last Commit</h3>
         <p>They leave. Their world of work stays. A design prototype that helps a new developer find their way around a codebase whose owner has left, guided by an agent that interviewed him before he went.</p>
         <div class="links"><a class="primary" href="https://ssachis.github.io/last-commit/">Try it live</a><a href="https://github.com/ssachis/last-commit">GitHub</a></div>
       </article>
       <article class="card">
+        <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
         <div class="meta"><span class="tag">Research project</span><span class="tag">Fall 2026</span></div>
         <h3>FusionEdges</h3>
         <p>Tests whether giving a coding agent a compatibility report first makes cross-repo changes safer and cheaper, like adding a React navbar to a Next.js site.</p>
@@ -110,7 +185,7 @@ footer{margin-top:72px;padding:28px 0 48px;border-top:1px solid var(--line);font
   </section>
 
   <footer>
-    <span>Sachi Singh</span>
+    <em>Still growing.</em>
     <a href="https://github.com/ssachis">github.com/ssachis</a>
   </footer>
 </div>
