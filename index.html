@@ -60,24 +60,38 @@ section{padding:56px 0 8px}
 .section-head{margin-bottom:24px}
 h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:36px;letter-spacing:-.01em;margin:0}
 .section-head p{margin:4px 0 0;color:var(--muted);font-size:16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
-.card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 24px 22px;display:flex;flex-direction:column;gap:12px;transition:transform .2s ease,box-shadow .2s ease}
-.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(31,51,38,.10)}
-.card .sprout{position:absolute;top:20px;right:20px;width:28px;height:28px;opacity:.9}
-.meta{display:flex;flex-wrap:wrap;gap:6px;padding-right:36px}
-.tag{font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--tag);color:var(--muted)}
-h3{font-size:22px;font-weight:700;margin:2px 0 0;letter-spacing:-.01em}
-.card .shot{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:12px;border:1px solid var(--line);background:var(--tag)}
-.card p{margin:0;color:var(--muted);font-size:15.5px;flex:1}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.links a{font-size:14px;font-weight:600;text-decoration:none;padding:8px 14px;border-radius:12px;border:1px solid var(--line)}
-.links a.primary{background:var(--leaf);border-color:var(--leaf);color:var(--paper)}
-.links a:hover{border-color:var(--leaf)}
-.links a:focus-visible{outline:2px solid var(--leaf);outline-offset:2px}
+/* flip cards: the front is the project's screenshot, tap to turn it over */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
+.flip{perspective:1400px;display:grid}
+.flip-inner{display:grid;height:100%;transition:transform .6s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:20px;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+.front{background:var(--paper);cursor:inherit}
+.front img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
+.front .name{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px 18px;flex:1}
+.front h3{margin:0;font-family:'Fraunces',Georgia,serif;font-size:24px;font-weight:600;letter-spacing:-.01em}
+.hint{font-size:12px;font-weight:600;color:var(--muted);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.hint svg{width:16px;height:16px}
+.front:hover img{filter:saturate(1.08)}
+.front:focus-visible,.back .turn:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
+.back{transform:rotateY(180deg);background:var(--wall);padding:24px 22px 20px;gap:12px}
+.back .when{margin:0;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf)}
+.back h3{margin:0;font-family:'Fraunces',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-.01em}
+.back .line{margin:0;font-size:16px;line-height:1.55;color:var(--ink);flex:1}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{font-size:14px;font-weight:600;text-decoration:none;padding:9px 15px;border-radius:12px;border:1px solid var(--ink);color:var(--ink);background:transparent}
+.links a.primary{background:var(--ink);color:var(--wall)}
+.links a:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
+.turn{align-self:flex-start;background:none;border:0;padding:4px 0;font:inherit;font-size:13px;font-weight:600;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+@media (prefers-reduced-motion: reduce){.flip-inner{transition:none}}
+.w1{--wall:#f6ddd2}.w2{--wall:#e0eedb}.w3{--wall:#f8eac2}.w4{--wall:#e6e0f4}.w5{--wall:#dbe9f3}
+@media (prefers-color-scheme: dark){
+ :root:not([data-theme="light"]) .w1{--wall:#4a3029}:root:not([data-theme="light"]) .w2{--wall:#2c4030}:root:not([data-theme="light"]) .w3{--wall:#4a4026}:root:not([data-theme="light"]) .w4{--wall:#3a3350}:root:not([data-theme="light"]) .w5{--wall:#2a3d4c}}
+:root[data-theme="dark"] .w1{--wall:#4a3029}:root[data-theme="dark"] .w2{--wall:#2c4030}:root[data-theme="dark"] .w3{--wall:#4a4026}:root[data-theme="dark"] .w4{--wall:#3a3350}:root[data-theme="dark"] .w5{--wall:#2a3d4c}
 
 /* butterfly cursor (touch screens have no cursor, so nothing changes there) */
 html,body{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 60 48'%3E%3Cpath d='M30 24C22 6 4 2 3 14c-1 9 13 12 27 10Z' fill='%23e07a5f' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 24C38 6 56 2 57 14c1 9-13 12-27 10Z' fill='%23e07a5f' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 25C20 30 10 40 16 45c5 3 12-8 14-20Z' fill='%23f2c14e' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 25c10 5 20 15 14 20-5 3-12-8-14-20Z' fill='%23f2c14e' stroke='%231f3326' stroke-width='2'/%3E%3Crect x='28' y='10' width='4' height='28' rx='2' fill='%231f3326'/%3E%3C/svg%3E") 16 16, auto}
-a,button,.card{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 60 48'%3E%3Cpath d='M30 24C22 6 4 2 3 14c-1 9 13 12 27 10Z' fill='%23b39ddb' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 24C38 6 56 2 57 14c1 9-13 12-27 10Z' fill='%23b39ddb' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 25C20 30 10 40 16 45c5 3 12-8 14-20Z' fill='%238fae8b' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 25c10 5 20 15 14 20-5 3-12-8-14-20Z' fill='%238fae8b' stroke='%231f3326' stroke-width='2'/%3E%3Crect x='28' y='10' width='4' height='28' rx='2' fill='%231f3326'/%3E%3C/svg%3E") 16 16, pointer}
+a,button,.front{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 60 48'%3E%3Cpath d='M30 24C22 6 4 2 3 14c-1 9 13 12 27 10Z' fill='%23b39ddb' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 24C38 6 56 2 57 14c1 9-13 12-27 10Z' fill='%23b39ddb' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 25C20 30 10 40 16 45c5 3 12-8 14-20Z' fill='%238fae8b' stroke='%231f3326' stroke-width='2'/%3E%3Cpath d='M30 25c10 5 20 15 14 20-5 3-12-8-14-20Z' fill='%238fae8b' stroke='%231f3326' stroke-width='2'/%3E%3Crect x='28' y='10' width='4' height='28' rx='2' fill='%231f3326'/%3E%3C/svg%3E") 16 16, pointer}
 
 /* closing quote */
 .closing{padding:72px 0 0}
@@ -144,52 +158,87 @@ footer em{font-family:'Fraunces',Georgia,serif;font-size:17px;color:var(--ink)}
 
   <section aria-labelledby="hackathons">
     <div class="section-head"><h2 id="hackathons">Hackathons</h2><p>Seeds sown in a weekend, built as a team.</p></div>
-    <div class="grid">
-      <article class="card">
-        <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
-        <div class="meta"><span class="tag">Hackathon</span><span class="tag">Oct 2026</span></div>
-        <h3>LookUp NYC</h3>
-        <img class="shot" src="img/lookup-nyc.jpg" alt="LookUp NYC front page: NYC is talking. Look up and listen." width="1280" height="800" loading="lazy">
-        <p>A walking guide that shows you exactly where to look on New York’s buildings, then plays the story behind each one. Recorded narration, an I Spy collection and walks to share.</p>
-        <div class="links"><a class="primary" href="https://aegisherit.github.io/LookUp-NYC/">Try it live</a><a href="https://github.com/AegisHerit/LookUp-NYC">GitHub</a></div>
+    <div class="cards">
+      <article class="flip w1">
+        <div class="flip-inner">
+          <div class="face front" role="button" tabindex="0" aria-expanded="false" aria-label="LookUp NYC: show details">
+            <img src="img/lookup-nyc.jpg" alt="LookUp NYC front page: NYC is talking. Look up and listen." width="1280" height="800" loading="lazy">
+            <div class="name"><h3>LookUp NYC</h3><span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</span></div>
+          </div>
+          <div class="face back" inert>
+            <p class="when">Oct 2026 · Hackathon</p>
+            <h3>LookUp NYC</h3>
+            <p class="line">A walking guide that shows you exactly where to look on New York’s buildings, then plays the story behind each one.</p>
+            <div class="links"><a class="primary" href="https://aegisherit.github.io/LookUp-NYC/">Try it live</a><a href="https://github.com/AegisHerit/LookUp-NYC">GitHub</a></div>
+            <button class="turn" type="button">Flip back</button>
+          </div>
+        </div>
       </article>
-      <article class="card">
-        <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
-        <div class="meta"><span class="tag">Money Talks 2</span><span class="tag">Oct 2026</span></div>
-        <h3>BusyQueue</h3>
-        <img class="shot" src="img/busyqueue.jpg" alt="BusyQ dashboard showing billing mistakes found and cash coming due" width="1280" height="800" loading="lazy">
-        <p>An AI back office for small businesses. Snap a photo or PDF of a vendor invoice and it becomes an editable record, with any uncertain fields flagged for review.</p>
-        <div class="links"><a class="primary" href="https://m-talks2.buddhsen-work.workers.dev/">Try it live</a><a href="https://github.com/ssachis/BusyQueue">GitHub</a></div>
+      <article class="flip w2">
+        <div class="flip-inner">
+          <div class="face front" role="button" tabindex="0" aria-expanded="false" aria-label="BusyQueue: show details">
+            <img src="img/busyqueue.jpg" alt="BusyQ dashboard showing billing mistakes found and cash coming due" width="1280" height="800" loading="lazy">
+            <div class="name"><h3>BusyQueue</h3><span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</span></div>
+          </div>
+          <div class="face back" inert>
+            <p class="when">Oct 2026 · Money Talks 2</p>
+            <h3>BusyQueue</h3>
+            <p class="line">An AI back office for small businesses: snap a vendor invoice and it becomes an editable record, with uncertain fields flagged.</p>
+            <div class="links"><a class="primary" href="https://m-talks2.buddhsen-work.workers.dev/">Try it live</a><a href="https://github.com/ssachis/BusyQueue">GitHub</a></div>
+            <button class="turn" type="button">Flip back</button>
+          </div>
+        </div>
       </article>
-      <article class="card">
-        <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
-        <div class="meta"><span class="tag">Hackathon</span><span class="tag">Sep 2026</span></div>
-        <h3>Signal</h3>
-        <img class="shot" src="img/signal.jpg" alt="Signal front page in demo mode, ready to analyze a sample batch of resumes" width="1280" height="800" loading="lazy">
-        <p>Screens a batch of resumes and flags hidden prompt injections, near-duplicate submissions and timeline contradictions, with the evidence for each one.</p>
-        <div class="links"><a class="primary" href="https://ssachis.github.io/signal/">Try the demo</a><a href="https://github.com/ssachis/signal">GitHub</a></div>
+      <article class="flip w3">
+        <div class="flip-inner">
+          <div class="face front" role="button" tabindex="0" aria-expanded="false" aria-label="Signal: show details">
+            <img src="img/signal.jpg" alt="Signal front page in demo mode, ready to analyze a sample batch of resumes" width="1280" height="800" loading="lazy">
+            <div class="name"><h3>Signal</h3><span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</span></div>
+          </div>
+          <div class="face back" inert>
+            <p class="when">Sep 2026 · Hackathon</p>
+            <h3>Signal</h3>
+            <p class="line">Screens a batch of resumes for hidden prompt injections and duplicate submissions, with the evidence for each.</p>
+            <div class="links"><a class="primary" href="https://ssachis.github.io/signal/">Try the demo</a><a href="https://github.com/ssachis/signal">GitHub</a></div>
+            <button class="turn" type="button">Flip back</button>
+          </div>
+        </div>
       </article>
     </div>
   </section>
 
   <section aria-labelledby="classes">
     <div class="section-head"><h2 id="classes">NYU class projects</h2><p>Grown slowly, over a semester.</p></div>
-    <div class="grid">
-      <article class="card">
-        <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
-        <div class="meta"><span class="tag">MS-CEI</span><span class="tag">Fall 2026</span></div>
-        <h3>Last Commit</h3>
-        <img class="shot" src="img/last-commit.jpg" alt="Last Commit welcome screen: Welcome to John’s World" width="1280" height="800" loading="lazy">
-        <p>They leave. Their world of work stays. A design prototype that helps a new developer find their way around a codebase whose owner has left, guided by an agent that interviewed him before he went.</p>
-        <div class="links"><a class="primary" href="https://ssachis.github.io/last-commit/">Try it live</a><a href="https://github.com/ssachis/last-commit">GitHub</a></div>
+    <div class="cards">
+      <article class="flip w4">
+        <div class="flip-inner">
+          <div class="face front" role="button" tabindex="0" aria-expanded="false" aria-label="Last Commit: show details">
+            <img src="img/last-commit.jpg" alt="Last Commit welcome screen: Welcome to John’s World" width="1280" height="800" loading="lazy">
+            <div class="name"><h3>Last Commit</h3><span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</span></div>
+          </div>
+          <div class="face back" inert>
+            <p class="when">Fall 2026 · MS-CEI</p>
+            <h3>Last Commit</h3>
+            <p class="line">They leave. Their world of work stays. A design prototype that helps a new developer find their way around code whose owner has left.</p>
+            <div class="links"><a class="primary" href="https://ssachis.github.io/last-commit/">Try it live</a><a href="https://github.com/ssachis/last-commit">GitHub</a></div>
+            <button class="turn" type="button">Flip back</button>
+          </div>
+        </div>
       </article>
-      <article class="card">
-        <svg class="sprout" aria-hidden="true"><use href="#sprout"/></svg>
-        <div class="meta"><span class="tag">Research project</span><span class="tag">Fall 2026</span></div>
-        <h3>FusionEdges</h3>
-        <img class="shot" src="img/fusionedges.jpg" alt="FusionEdges front page: Borrow a navbar from any repo" width="1280" height="800" loading="lazy">
-        <p>Tests whether giving a coding agent a compatibility report first makes cross-repo changes safer and cheaper, like adding a React navbar to a Next.js site.</p>
-        <div class="links"><a class="primary" href="https://github.com/ssachis/FusionEdges">View on GitHub</a></div>
+      <article class="flip w5">
+        <div class="flip-inner">
+          <div class="face front" role="button" tabindex="0" aria-expanded="false" aria-label="FusionEdges: show details">
+            <img src="img/fusionedges.jpg" alt="FusionEdges front page: Borrow a navbar from any repo" width="1280" height="800" loading="lazy">
+            <div class="name"><h3>FusionEdges</h3><span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Tap to flip</span></div>
+          </div>
+          <div class="face back" inert>
+            <p class="when">Fall 2026 · Research project</p>
+            <h3>FusionEdges</h3>
+            <p class="line">Tests whether giving a coding agent a compatibility report first makes cross-repo changes safer and cheaper.</p>
+            <div class="links"><a class="primary" href="https://github.com/ssachis/FusionEdges">GitHub</a></div>
+            <button class="turn" type="button">Flip back</button>
+          </div>
+        </div>
       </article>
     </div>
   </section>
@@ -206,5 +255,22 @@ footer em{font-family:'Fraunces',Georgia,serif;font-size:17px;color:var(--ink)}
     <a href="https://github.com/ssachis">github.com/ssachis</a>
   </footer>
 </div>
+<script>
+// Flip cards: tap/click (or Enter/Space) the photo to see the details; "Flip back" or Escape returns.
+document.querySelectorAll('.flip').forEach(card => {
+  const front = card.querySelector('.front'), back = card.querySelector('.back');
+  const set = on => {
+    card.classList.toggle('flipped', on);
+    front.setAttribute('aria-expanded', on);
+    back.inert = !on; front.inert = on;
+    (on ? back.querySelector('a, .turn') : front).focus({ preventScroll: true });
+  };
+  front.addEventListener('click', () => set(true));
+  front.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); set(true); } });
+  back.querySelector('.turn').addEventListener('click', () => set(false));
+  back.addEventListener('click', e => { if (!e.target.closest('a, .turn')) set(false); });
+  card.addEventListener('keydown', e => { if (e.key === 'Escape' && card.classList.contains('flipped')) set(false); });
+});
+</script>
 </body>
 </html>
