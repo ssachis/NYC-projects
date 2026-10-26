@@ -1,0 +1,5 @@
+FLOW ERROR locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('main button').filter({ has: locator('strong') }).first()
+
+frames 956 [{"l":"welcome","t":1793043694.171},{"l":"home","t":1793043699.672},{"l":"repo","t":1793043706.56},{"l":"ask","t":1793043713.48},{"l":"error","t":1793043745.063}]
