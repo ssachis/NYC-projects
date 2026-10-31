@@ -69,6 +69,9 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--leaf);outline-offs
 
 /* interactive bits */
 .meadow .sway{transform-box:view-box;will-change:transform}
+.wanderer{position:fixed;left:0;top:0;width:34px;pointer-events:none;z-index:6;opacity:.95;will-change:transform;filter:drop-shadow(0 4px 6px rgba(31,51,38,.15))}
+.wanderer .wing{animation-duration:.22s}
+.wanderer.resting .wing{animation-duration:1.6s}
 .visitor{position:absolute;left:0;top:0;width:40px;pointer-events:none;z-index:5;opacity:.9}
 .visitor .wing{animation-duration:.18s}
 .visitor.resting .wing{animation-duration:1.4s}
@@ -99,6 +102,8 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--leaf);outline-offs
 .peek-go{position:absolute;top:34px;right:12px;padding:5px 12px;border-radius:999px;background:var(--leaf);color:var(--paper);font-size:12.5px;font-weight:600;opacity:0;transform:translateY(-4px);transition:opacity .25s ease,transform .25s ease}
 .peek:hover .peek-go,.peek:focus-visible .peek-go{opacity:1;transform:none}
 .peek + .line{margin-top:6px}
+.row .links{align-items:baseline}
+.peek-when{margin-left:auto;font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap;letter-spacing:.01em}
 .row:hover h3{transform:none}
 @media (hover:none){.peek-go{opacity:1;transform:none}}
 @media (prefers-reduced-motion: reduce){.peek-frame,.peek-view img{transition:none}.peek:hover .peek-view img{transform:none}}
@@ -153,7 +158,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
             <span class="peek-go">Open <span aria-hidden="true">↗</span></span>
           </a>
           <p class="line">A walking guide that shows you exactly where to look on New York’s buildings, then plays the story behind each one.</p>
-          <div class="links"><a href="https://github.com/AegisHerit/LookUp-NYC">GitHub<span aria-hidden="true"> ↗</span></a></div>
+          <div class="links"><a href="https://aegisherit.github.io/LookUp-NYC/">Try it live<span aria-hidden="true"> ↗</span></a><a href="https://github.com/AegisHerit/LookUp-NYC">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Oct 2026 · Hackathon</span></div>
           <details>
             <summary>Watch the demo</summary>
             <div class="shot"><video controls playsinline preload="none" poster="img/lookup-nyc-video.jpg" aria-label="LookUp NYC demo video"><source src="video/lookup-nyc.mp4" type="video/mp4"></video></div>
@@ -169,7 +174,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
             <span class="peek-go">Open <span aria-hidden="true">↗</span></span>
           </a>
           <p class="line">An AI back office for small businesses: snap a vendor invoice and it becomes an editable record, with uncertain fields flagged.</p>
-          <div class="links"><a href="https://github.com/ssachis/BusyQueue">GitHub<span aria-hidden="true"> ↗</span></a></div>
+          <div class="links"><a href="https://m-talks2.buddhsen-work.workers.dev/">Try it live<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/BusyQueue">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Oct 2026 · Money Talks 2</span></div>
           <details>
             <summary>Watch the demo</summary>
             <div class="shot"><video controls playsinline preload="none" poster="img/busyqueue-video.jpg" aria-label="BusyQueue demo video"><source src="video/busyqueue.mp4" type="video/mp4"></video></div>
@@ -185,7 +190,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
             <span class="peek-go">Open <span aria-hidden="true">↗</span></span>
           </a>
           <p class="line">Screens a batch of resumes for hidden prompt injections and duplicate submissions, with the evidence for each.</p>
-          <div class="links"><a href="https://github.com/ssachis/signal">GitHub<span aria-hidden="true"> ↗</span></a></div>
+          <div class="links"><a href="https://ssachis.github.io/signal/">Try the demo<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/signal">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Sep 2026 · Hackathon</span></div>
         </div>
       </li>
     </ol>
@@ -204,7 +209,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
             <span class="peek-go">Open <span aria-hidden="true">↗</span></span>
           </a>
           <p class="line">They leave. Their world of work stays. A design prototype that helps a new developer find their way around code whose owner has left.</p>
-          <div class="links"><a href="https://github.com/ssachis/last-commit">GitHub<span aria-hidden="true"> ↗</span></a></div>
+          <div class="links"><a href="https://ssachis.github.io/last-commit/">Try it live<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/last-commit">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Fall 2026 · MS-CEI</span></div>
           <details>
             <summary>Watch the demo</summary>
             <div class="shot"><video controls playsinline preload="none" poster="img/last-commit-video.jpg" aria-label="Last Commit demo video"><source src="video/last-commit.mp4" type="video/mp4"></video></div>
@@ -220,7 +225,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
             <span class="peek-go">See it <span aria-hidden="true">↗</span></span>
           </a>
           <p class="line">Tests whether giving a coding agent a compatibility report first makes cross-repo changes safer and cheaper.</p>
-          <div class="links"><a href="https://github.com/ssachis/FusionEdges">GitHub<span aria-hidden="true"> ↗</span></a></div>
+          <div class="links"><a href="https://github.com/ssachis/FusionEdges">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Fall 2026 · Research</span></div>
         </div>
       </li>
     </ol>
@@ -238,7 +243,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
             <span class="peek-go">Open <span aria-hidden="true">↗</span></span>
           </a>
           <p class="line">A Halloween co-op platformer: Andy and his ghost work through a haunted temple together, on one keyboard or across two laptops.</p>
-          <div class="links"><a href="https://github.com/ssachis/GhostTown">GitHub<span aria-hidden="true"> ↗</span></a></div>
+          <div class="links"><a href="https://ssachis.github.io/GhostTown/">Play it live<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/GhostTown">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Oct 2026 · Game</span></div>
         </div>
       </li>
     </ol>
@@ -344,6 +349,48 @@ document.querySelectorAll('details').forEach(d => {
     }
   });
 });
+
+// 4) One butterfly always wandering across the screen, now and then resting on a project.
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const src = document.querySelector('.fly.b') || document.querySelector('.fly.a');
+  if (!src) return;
+  const b = document.createElement('div');
+  b.className = 'wanderer'; b.setAttribute('aria-hidden', 'true'); b.innerHTML = src.innerHTML;
+  document.body.appendChild(b);
+  let x = -50, y = innerHeight * 0.35, tx = 0, ty = 0, rest = 0, t = 0, last = performance.now(), face = 1;
+  function pick() {
+    // sometimes land on a visible project strip, otherwise drift to a random spot
+    const cards = [...document.querySelectorAll('.peek-frame')].map(e => e.getBoundingClientRect())
+      .filter(r => r.top > 40 && r.top < innerHeight - 80);
+    if (cards.length && Math.random() < 0.4) {
+      const r = cards[Math.floor(Math.random() * cards.length)];
+      tx = r.left + 20 + Math.random() * (r.width - 60); ty = r.top - 14; rest = 2.5 + Math.random() * 2.5;
+    } else {
+      tx = 40 + Math.random() * (innerWidth - 80); ty = 60 + Math.random() * (innerHeight - 160); rest = 0;
+    }
+  }
+  pick();
+  addEventListener('scroll', () => { if (b.classList.contains('resting')) { b.classList.remove('resting'); pick(); } }, { passive: true });
+  (function step(now) {
+    const dt = Math.min(0.05, (now - last) / 1000); last = now; t += dt;
+    if (b.classList.contains('resting')) {
+      rest -= dt; if (rest <= 0) { b.classList.remove('resting'); pick(); }
+    } else {
+      const dx = tx - x, dy = ty - y, d = Math.hypot(dx, dy);
+      if (d < 6) { if (rest > 0) b.classList.add('resting'); else pick(); }
+      else {
+        const sp = Math.min(110, 30 + d * 0.6) * dt;
+        x += dx / d * sp + Math.sin(t * 2.3) * 0.8;
+        y += dy / d * sp + Math.sin(t * 5.1) * 1.4;
+        if (Math.abs(dx) > 4) face = dx > 0 ? 1 : -1;
+      }
+    }
+    const tilt = b.classList.contains('resting') ? 0 : Math.sin(t * 3) * 10;
+    b.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${(tilt * face).toFixed(1)}deg)`;
+    requestAnimationFrame(step);
+  })(last);
+})();
 
 // "See all" shows the older hackathons.
 document.querySelectorAll('.see-all').forEach(b => {
