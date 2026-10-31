@@ -7,6 +7,7 @@ const shots = [
   ['signal', 'http://127.0.0.1:8101/frontend/?demo=1'],
   ['last-commit', 'https://ssachis.github.io/last-commit/'],
   ['fusionedges', 'http://127.0.0.1:8000/'],
+  ['ghosttown', 'https://ssachis.github.io/GhostTown/'],
 ];
 (async () => {
   const browser = await chromium.launch();

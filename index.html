@@ -72,9 +72,9 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--leaf);outline-offs
 .shot{transform-origin:top center}
 .row h3{transition:transform .3s ease}
 .row:hover h3{transform:translateX(3px)}
-.t-green{color:#2f6b45}.t-brown{color:#8a5a33}.t-blue{color:#2f6d8c}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .t-green{color:#8fd1a2}:root:not([data-theme="light"]) .t-brown{color:#dcae84}:root:not([data-theme="light"]) .t-blue{color:#8cc4e0}}
-:root[data-theme="dark"] .t-green{color:#8fd1a2}:root[data-theme="dark"] .t-brown{color:#dcae84}:root[data-theme="dark"] .t-blue{color:#8cc4e0}
+.t-green{color:#2f6b45}.t-brown{color:#8a5a33}.t-blue{color:#2f6d8c}.t-purple{color:#6a4fb0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .t-green{color:#8fd1a2}:root:not([data-theme="light"]) .t-brown{color:#dcae84}:root:not([data-theme="light"]) .t-purple{color:#c6b3ec}:root:not([data-theme="light"]) .t-blue{color:#8cc4e0}}
+:root[data-theme="dark"] .t-green{color:#8fd1a2}:root[data-theme="dark"] .t-brown{color:#dcae84}:root[data-theme="dark"] .t-blue{color:#8cc4e0}:root[data-theme="dark"] .t-purple{color:#c6b3ec}
 
 .row[hidden]{display:none}
 .see-all{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:10px 18px;border:1px solid var(--line);border-radius:999px;background:transparent;font:inherit;font-size:15px;font-weight:600;color:var(--leaf);cursor:inherit}
@@ -180,6 +180,24 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
           <details>
             <summary>See it</summary>
             <a class="shot" href="https://github.com/ssachis/FusionEdges" title="Open on GitHub"><img src="img/fusionedges.jpg" alt="FusionEdges front page: Borrow a navbar from any repo" width="1280" height="800" loading="lazy"></a>
+          </details>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="passion">
+    <div class="head"><h2 id="passion">Passion projects</h2><p>Planted for fun, tended after hours.</p></div>
+    <ol>
+      <li class="row">
+        <p class="when">Oct 2026<span>Game</span></p>
+        <div class="body">
+          <h3 class="t-purple">GhostTown</h3>
+          <p class="line">A Halloween co-op platformer: Andy and his ghost work through a haunted temple together, on one keyboard or across two laptops.</p>
+          <div class="links"><a href="https://ssachis.github.io/GhostTown/">Play it live<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/GhostTown">GitHub<span aria-hidden="true"> ↗</span></a></div>
+          <details>
+            <summary>See it</summary>
+            <a class="shot" href="https://ssachis.github.io/GhostTown/" title="Play GhostTown"><img src="img/ghosttown.jpg" alt="GhostTown title art: Andy and his glowing ghost in moonlit purple ruins, with the neon Ghost Town sign" width="1280" height="800" loading="lazy"></a>
           </details>
         </div>
       </li>
