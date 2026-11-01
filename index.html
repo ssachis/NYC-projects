@@ -94,8 +94,8 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--leaf);outline-offs
 .peek-bar span{margin-left:8px;font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .peek-view{display:block;aspect-ratio:16/4.4;overflow:hidden}
 .peek-view img{display:block;width:100%;height:auto;object-fit:cover;object-position:var(--p0);aspect-ratio:auto;transform:translateY(0);transition:transform 2.6s cubic-bezier(.3,.6,.2,1),filter .4s ease;filter:saturate(.9)}
-.peek-view img{animation:browse 14s cubic-bezier(.45,0,.55,1) infinite alternate;animation-delay:calc(var(--i,0) * -3.1s);filter:none}
-@keyframes browse{0%,12%{transform:translateY(0)}88%,100%{transform:translateY(-18%)}}
+.peek-view img{animation:browse 8s cubic-bezier(.45,0,.55,1) infinite alternate;animation-delay:calc(var(--i,0) * -1.7s);filter:none}
+@keyframes browse{0%,8%{transform:translateY(0)}92%,100%{transform:translateY(-34%)}}
 .peek:hover .peek-view img{animation-play-state:paused}
 .peek:hover .peek-frame,.peek:focus-visible .peek-frame{transform:translateY(-3px)}
 .peek-cap{position:relative;display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 14px;margin-top:-6px;padding:0 2px}
