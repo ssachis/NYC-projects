@@ -94,7 +94,9 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--leaf);outline-offs
 .peek-bar span{margin-left:8px;font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .peek-view{display:block;aspect-ratio:16/4.4;overflow:hidden}
 .peek-view img{display:block;width:100%;height:auto;object-fit:cover;object-position:var(--p0);aspect-ratio:auto;transform:translateY(0);transition:transform 2.6s cubic-bezier(.3,.6,.2,1),filter .4s ease;filter:saturate(.9)}
-.peek:hover .peek-view img,.peek:focus-visible .peek-view img{transform:translateY(-16%);filter:none}
+.peek-view img{animation:browse 14s cubic-bezier(.45,0,.55,1) infinite alternate;animation-delay:calc(var(--i,0) * -3.1s);filter:none}
+@keyframes browse{0%,12%{transform:translateY(0)}88%,100%{transform:translateY(-18%)}}
+.peek:hover .peek-view img{animation-play-state:paused}
 .peek:hover .peek-frame,.peek:focus-visible .peek-frame{transform:translateY(-3px)}
 .peek-cap{position:relative;display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 14px;margin-top:-6px;padding:0 2px}
 .peek-cap h3{font-size:28px!important;line-height:1.1;margin:0}
@@ -106,7 +108,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--leaf);outline-offs
 .peek-when{margin-left:auto;font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap;letter-spacing:.01em}
 .row:hover h3{transform:none}
 @media (hover:none){.peek-go{opacity:1;transform:none}}
-@media (prefers-reduced-motion: reduce){.peek-frame,.peek-view img{transition:none}.peek:hover .peek-view img{transform:none}}
+@media (prefers-reduced-motion: reduce){.peek-frame,.peek-view img{transition:none;animation:none}}
 @media (max-width:640px){.row .body{width:100%}.peek-view{aspect-ratio:16/6.5}.peek-cap h3{font-size:23px!important}.peek-cap em{font-size:14.5px}}
 
 .row[hidden]{display:none}
@@ -151,7 +153,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
     <ol>
       <li class="row">
         <div class="body">
-          <a class="peek" href="https://aegisherit.github.io/LookUp-NYC/" style="--p0:50% 0%;--p1:50% 22%">
+          <a class="peek" href="https://aegisherit.github.io/LookUp-NYC/" style="--i:1;--p0:50% 0%;--p1:50% 22%">
             <span class="peek-frame"><span class="peek-bar" aria-hidden="true"><i></i><i></i><i></i><span>aegisherit.github.io</span></span>
               <span class="peek-view"><img src="img/lookup-nyc.jpg" alt="" width="1280" height="800" loading="lazy"></span></span>
             <span class="peek-cap"><h3 class="t-green">LookUp NYC</h3><em>Stop. Look up.</em></span>
@@ -167,7 +169,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
       </li>
       <li class="row">
         <div class="body">
-          <a class="peek" href="https://m-talks2.buddhsen-work.workers.dev/" style="--p0:50% 0%;--p1:50% 22%">
+          <a class="peek" href="https://m-talks2.buddhsen-work.workers.dev/" style="--i:2;--p0:50% 0%;--p1:50% 22%">
             <span class="peek-frame"><span class="peek-bar" aria-hidden="true"><i></i><i></i><i></i><span>m-talks2.buddhsen-work.workers.dev</span></span>
               <span class="peek-view"><img src="img/busyqueue.jpg" alt="" width="1280" height="800" loading="lazy"></span></span>
             <span class="peek-cap"><h3 class="t-brown">BusyQueue</h3><em>Snap an invoice. Watch it fill itself in.</em></span>
@@ -183,7 +185,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
       </li>
       <li class="row more" id="more-hackathons" hidden>
         <div class="body">
-          <a class="peek" href="https://ssachis.github.io/signal/" style="--p0:50% 0%;--p1:50% 22%">
+          <a class="peek" href="https://ssachis.github.io/signal/" style="--i:3;--p0:50% 0%;--p1:50% 22%">
             <span class="peek-frame"><span class="peek-bar" aria-hidden="true"><i></i><i></i><i></i><span>ssachis.github.io</span></span>
               <span class="peek-view"><img src="img/signal.jpg" alt="" width="1280" height="800" loading="lazy"></span></span>
             <span class="peek-cap"><h3 class="t-blue">Signal</h3><em>Which resume is lying to the robot?</em></span>
@@ -202,7 +204,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
     <ol>
       <li class="row">
         <div class="body">
-          <a class="peek" href="https://ssachis.github.io/last-commit/" style="--p0:50% 0%;--p1:50% 22%">
+          <a class="peek" href="https://ssachis.github.io/last-commit/" style="--i:4;--p0:50% 0%;--p1:50% 22%">
             <span class="peek-frame"><span class="peek-bar" aria-hidden="true"><i></i><i></i><i></i><span>ssachis.github.io</span></span>
               <span class="peek-view"><img src="img/last-commit.jpg" alt="" width="1280" height="800" loading="lazy"></span></span>
             <span class="peek-cap"><h3 class="t-brown">Last Commit</h3><em>They left. Their code didn’t.</em></span>
@@ -218,7 +220,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
       </li>
       <li class="row">
         <div class="body">
-          <a class="peek" href="https://github.com/ssachis/FusionEdges" style="--p0:50% 0%;--p1:50% 22%">
+          <a class="peek" href="https://github.com/ssachis/FusionEdges" style="--i:5;--p0:50% 0%;--p1:50% 22%">
             <span class="peek-frame"><span class="peek-bar" aria-hidden="true"><i></i><i></i><i></i><span>github.com/ssachis/FusionEdges</span></span>
               <span class="peek-view"><img src="img/fusionedges.jpg" alt="" width="1280" height="800" loading="lazy"></span></span>
             <span class="peek-cap"><h3 class="t-green">FusionEdges</h3><em>A map before the merge.</em></span>
@@ -236,7 +238,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
     <ol>
       <li class="row">
         <div class="body">
-          <a class="peek" href="https://ssachis.github.io/GhostTown/" style="--p0:50% 0%;--p1:50% 22%">
+          <a class="peek" href="https://ssachis.github.io/GhostTown/" style="--i:6;--p0:50% 0%;--p1:50% 22%">
             <span class="peek-frame"><span class="peek-bar" aria-hidden="true"><i></i><i></i><i></i><span>ssachis.github.io</span></span>
               <span class="peek-view"><img src="img/ghosttown.jpg" alt="" width="1280" height="800" loading="lazy"></span></span>
             <span class="peek-cap"><h3 class="t-purple">GhostTown</h3><em>Two players. One haunted temple.</em></span>
