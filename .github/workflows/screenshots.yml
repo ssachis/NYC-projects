@@ -16,10 +16,11 @@ jobs:
       - run: npm i --no-save playwright@1.48.2 && npx playwright install --with-deps chromium
       - name: Start Signal and FusionEdges locally
         run: |
-          git clone -q --depth 1 https://github.com/ssachis/signal /tmp/signal
-          git clone -q --depth 1 https://github.com/ssachis/FusionEdges /tmp/fe
-          (cd /tmp/signal && python3 -m http.server 8101 --bind 127.0.0.1 > /tmp/sig.log 2>&1 &)
-          (cd /tmp/fe && BROWSER=true python3 -m fusionedges.server > /tmp/fe.log 2>&1 &)
+          # A repo that can't be cloned (e.g. made private) is skipped; its old screenshot stays.
+          git clone -q --depth 1 https://github.com/ssachis/signal /tmp/signal || echo "skip signal"
+          git clone -q --depth 1 https://github.com/ssachis/FusionEdges /tmp/fe || echo "skip FusionEdges"
+          [ -d /tmp/signal ] && (cd /tmp/signal && python3 -m http.server 8101 --bind 127.0.0.1 > /tmp/sig.log 2>&1 &) || true
+          [ -d /tmp/fe ] && (cd /tmp/fe && BROWSER=true python3 -m fusionedges.server > /tmp/fe.log 2>&1 &) || true
           sleep 6; tail -5 /tmp/fe.log || true
       - run: mkdir -p img && node scripts/shots.js | tee img/shots-log.txt
       - name: Save
