@@ -1,6 +1,6 @@
 ok lookup-nyc LookUp NYC
-ok busyqueue BusyQ
+ok busyqueue Page not found
 ok signal Signal — Applicant Trust Review
 ok last-commit Last Commit
-ok fusionedges FusionEdges
+FAILED fusionedges page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8000/
 ok ghosttown GhostTown
