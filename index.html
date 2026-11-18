@@ -223,7 +223,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
           </details>
         </div>
       </li>
-      <li class="row">
+      <li class="row more" id="more-hackathons-bq" hidden>
         <div class="body">
           <a class="peek" href="https://m-talks2.buddhsen-work.workers.dev/" style="--i:4;--p0:50% 0%;--p1:50% 22%">
             <span class="peek-frame"><span class="peek-bar" aria-hidden="true"><i></i><i></i><i></i><span>m-talks2.buddhsen-work.workers.dev</span></span>
@@ -252,7 +252,7 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
         </div>
       </li>
     </ol>
-    <button class="see-all" type="button" aria-expanded="false" aria-controls="more-hackathons">See all <span>+1 more</span></button>
+    <button class="see-all" type="button" aria-expanded="false" aria-controls="more-hackathons-bq more-hackathons">See all <span>+2 more</span></button>
   </section>
 
   <section aria-labelledby="classes">
@@ -482,15 +482,15 @@ document.querySelectorAll('details').forEach(d => {
 
 // "See all" shows the older hackathons.
 document.querySelectorAll('.see-all').forEach(b => {
-  const more = document.getElementById(b.getAttribute('aria-controls'));
+  const mores = b.getAttribute('aria-controls').split(' ').map(id => document.getElementById(id));
   b.dataset.label = b.innerHTML;
   b.addEventListener('click', () => {
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', open);
-    more.hidden = !open;
+    mores.forEach(m => m.hidden = !open);
     b.innerHTML = open ? 'Show less' : b.dataset.label;
     if (open && !matchMedia('(prefers-reduced-motion: reduce)').matches)
-      more.animate([{ opacity: 0, transform: 'translateY(-10px)' }, { opacity: 1, transform: 'none' }], { duration: 380, easing: 'cubic-bezier(.2,.7,.2,1)' });
+      mores.forEach(more => more.animate([{ opacity: 0, transform: 'translateY(-10px)' }, { opacity: 1, transform: 'none' }], { duration: 380, easing: 'cubic-bezier(.2,.7,.2,1)' }));
   });
 });
 </script>
