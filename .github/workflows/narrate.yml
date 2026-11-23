@@ -11,11 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq espeak-ng
       - run: pip install "kokoro==0.9.4" soundfile "spacy==3.8.7" https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
-      - run: for f in narration/*.txt; do python .github/scripts/narrate.py "$(basename "$f" .txt)" af_heart 1.0; done
+      - run: for f in narration/*.txt; do n=$(basename "$f" .txt); [ -f "narration/out/$n-01.wav" ] && [ "$(git log -1 --format=%ct -- "$f")" -le "$(git log -1 --format=%ct -- "narration/out/$n-01.wav")" ] && continue; python .github/scripts/narrate.py "$n" af_heart 1.0; done
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
