@@ -3,7 +3,7 @@
 const { chromium } = require('playwright');
 const shots = [
   ['lookup-nyc', 'https://ssachis.github.io/LookUp-NYC/'],
-  ['busyqueue', 'https://m-talks2.buddhsen-work.workers.dev/'],
+  ['busyqueue', 'https://ssachis.github.io/BusyQueue/demo/'],
   ['signal', 'http://127.0.0.1:8101/frontend/?demo=1'],
   ['last-commit', 'https://ssachis.github.io/last-commit/'],
   ['fusionedges', 'http://127.0.0.1:8000/'],
