@@ -8,6 +8,7 @@ const shots = [
   ['last-commit', 'https://ssachis.github.io/last-commit/'],
   ['fusionedges', 'http://127.0.0.1:8000/'],
   ['ghosttown', 'https://ssachis.github.io/GhostTown/'],
+  ['wave', 'https://ssachis.github.io/NYC-projects/wave/'],
 ];
 (async () => {
   const browser = await chromium.launch();
