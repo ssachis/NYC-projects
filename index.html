@@ -159,42 +159,38 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
 .award-t small{font:600 8.5px/1.3 system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#e9cf8c}
 .award-t b{font:700 11px/1 Georgia,"Times New Roman",serif;letter-spacing:.22em;text-transform:uppercase;padding-left:.22em;background:linear-gradient(#fff1c4,#e2b65a 60%,#c8963c);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* "My part" scroll: a rolled parchment that unrolls on click */
-.row details.scroll{margin-top:10px}
-.scroll > summary{gap:9px;cursor:pointer;color:#7a4f24;padding:4px 12px 4px 8px;border-radius:999px;background:color-mix(in srgb,#efd9a7 55%,transparent);border:1px solid #d9bd85;transition:transform .2s ease,background .2s ease}
+/* "My part": a tiny rolled scroll that unrolls on click */
+.row details.scroll{margin-top:8px}
+.scroll > summary{gap:6px;cursor:pointer;padding:0;font:italic 400 14px/1 'Fraunces',Georgia,serif;color:#8a5a2e}
 .scroll > summary::before{display:none}
-.scroll > summary:hover{transform:translateY(-1px) rotate(-1deg);background:#efd9a7}
-.scroll > summary svg{width:22px;height:16px;flex:none;transition:transform .4s ease}
-.scroll[open] > summary svg{transform:rotate(-8deg) scale(1.08)}
-.scroll > summary .hint{font-weight:400;opacity:.7}
-.scroll[open] > summary .hint{display:none}
-.scroll-body{position:relative;max-width:460px;margin:14px 0 4px 6px;filter:drop-shadow(0 10px 14px rgba(90,60,25,.22))}
-.rod{position:relative;height:16px;margin:0 -14px;border-radius:9px;background:linear-gradient(#c79a62,#9a6a36 55%,#7a5028);box-shadow:inset 0 2px 0 rgba(255,240,210,.35);z-index:2}
-.rod::before,.rod::after{content:"";position:absolute;top:-3px;width:12px;height:22px;border-radius:6px;background:linear-gradient(#8a5a2e,#5e3b1b)}
-.rod::before{left:-6px}.rod::after{right:-6px}
+.scroll > summary svg{width:30px;height:18px;flex:none;transform-origin:50% 60%;animation:wiggle 4s ease-in-out infinite}
+.scroll > summary:hover svg{animation:none;transform:rotate(-10deg) scale(1.12)}
+.scroll[open] > summary svg{animation:none}
+.scroll > summary span{border-bottom:1px dashed transparent;transition:border-color .2s}
+.scroll > summary:hover span{border-bottom-color:currentColor}
+@keyframes wiggle{0%,82%,100%{transform:rotate(0)}86%{transform:rotate(-9deg)}90%{transform:rotate(7deg)}94%{transform:rotate(-4deg)}}
+.scroll-body{width:min(290px,100%);margin:10px 0 2px 4px;filter:drop-shadow(0 6px 8px rgba(90,60,25,.2));transform:rotate(-1.2deg)}
+.rod{position:relative;height:9px;margin:0 -7px;border-radius:5px;background:linear-gradient(#c79a62,#8a5a2e);z-index:2}
+.rod::before,.rod::after{content:"";position:absolute;top:-2px;width:7px;height:13px;border-radius:4px;background:#6b4423}
+.rod::before{left:-4px}.rod::after{right:-4px}
 .unroll{display:grid;grid-template-rows:1fr}
-.scroll[open] .unroll{animation:unroll .95s cubic-bezier(.22,.9,.25,1)}
+.scroll[open] .unroll{animation:unroll .8s cubic-bezier(.22,.9,.25,1)}
 @keyframes unroll{from{grid-template-rows:0fr}to{grid-template-rows:1fr}}
 .unroll > div{overflow:hidden;min-height:0}
-.paper{position:relative;margin:-6px 0;padding:24px 28px 22px;color:#3d2a16;
-  background:radial-gradient(120% 80% at 10% 0%,rgba(255,248,225,.75),transparent 60%),radial-gradient(90% 70% at 100% 100%,rgba(176,122,58,.22),transparent 65%),linear-gradient(#f6e7c1,#efd9a7);
-  box-shadow:inset 0 0 34px rgba(140,90,35,.30),inset 0 0 4px rgba(140,90,35,.35)}
-.paper::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;background:repeating-linear-gradient(0deg,transparent 0 27px,rgba(140,90,35,.16) 27px 28px)}
-.paper h4{margin:0 0 10px;font:italic 500 21px/1.2 'Fraunces',Georgia,serif;letter-spacing:-.01em;color:#5b3712}
+.paper{position:relative;margin:-4px 0;padding:14px 16px 12px;color:#3d2a16;
+  background:radial-gradient(100% 70% at 0% 0%,rgba(255,248,225,.8),transparent 60%),linear-gradient(#f6e7c1,#ecd39d);
+  box-shadow:inset 0 0 18px rgba(140,90,35,.3)}
+.paper h4{margin:0 0 6px;font:italic 500 15px/1.2 'Fraunces',Georgia,serif;color:#5b3712}
 .paper ul{list-style:none;margin:0;padding:0}
-.paper li{position:relative;padding-left:26px;margin:5px 0;font:400 17px/1.45 'Fraunces',Georgia,serif}
-.paper li::before{content:"";position:absolute;left:2px;top:.55em;width:14px;height:8px;border-radius:0 100% 0 100%;background:#8a5a2e;transform:rotate(-30deg);opacity:.85}
-.paper .also{margin:14px 0 6px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#8a5a2e}
-.paper .chips{display:flex;flex-wrap:wrap;gap:6px}
-.paper .chips span{padding:2px 11px;border-radius:999px;border:1px dashed #b08550;font:italic 15px/1.6 'Fraunces',Georgia,serif;background:rgba(255,248,225,.45)}
-.seal{position:absolute;right:16px;bottom:12px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;transform:rotate(-12deg);
-  background:radial-gradient(circle at 35% 30%,#e0645a,#a8302b 60%,#7d1f1c);box-shadow:0 0 0 3px rgba(168,48,43,.35),0 3px 6px rgba(80,20,15,.35);
-  color:#fbe3d6;font:italic 600 19px/1 'Fraunces',Georgia,serif}
-.scroll[open] .seal{animation:stamp .5s .8s cubic-bezier(.3,1.6,.5,1) both}
-@keyframes stamp{from{transform:rotate(-30deg) scale(1.8);opacity:0}to{transform:rotate(-12deg) scale(1);opacity:1}}
-.paper .sign{margin:14px 58px 0 0;font:italic 300 15px/1.3 'Fraunces',Georgia,serif;color:#7a5530}
-@media (prefers-reduced-motion: reduce){.scroll[open] .unroll,.scroll[open] .seal{animation:none}}
-@media (max-width:640px){.scroll-body{margin-left:14px;margin-right:14px}.paper{padding:20px 20px 18px}}
+.paper li{position:relative;padding-left:16px;margin:2px 0;font:400 13.5px/1.45 'Fraunces',Georgia,serif}
+.paper li::before{content:"✦";position:absolute;left:0;top:0;font-size:9px;line-height:21px;color:#a8302b}
+.paper .chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;padding-right:30px}
+.paper .chips span{padding:0 8px;border-radius:999px;border:1px dashed #b08550;font:italic 12px/1.7 'Fraunces',Georgia,serif}
+.seal{position:absolute;right:9px;bottom:8px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;transform:rotate(-12deg);
+  background:radial-gradient(circle at 35% 30%,#e0645a,#a8302b 60%,#7d1f1c);box-shadow:0 0 0 2px rgba(168,48,43,.3);color:#fbe3d6;font:italic 600 12px/1 'Fraunces',Georgia,serif}
+.scroll[open] .seal{animation:stamp .45s .65s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes stamp{from{transform:rotate(-30deg) scale(1.9);opacity:0}to{transform:rotate(-12deg) scale(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){.scroll > summary svg,.scroll[open] .unroll,.scroll[open] .seal{animation:none}}
 </style>
 </head>
 <body>
@@ -222,19 +218,17 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
           <p class="line">Paste a YouTube Short and see other Shorts on the same idea spread out as waves, then remove creator size to see which ones truly beat their usual reach, and why.</p>
           <div class="links"><a href="https://the-algorithm.sachi2002-pratap.workers.dev/">Try it live<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/the-algorithm">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Nov 2026 · Creator Hack · Shortlisted (2nd)</span></div>
           <details class="scroll">
-            <summary><svg viewBox="0 0 30 22" aria-hidden="true"><rect x="5" y="4" width="20" height="14" rx="1" fill="#f3e0b3" stroke="#8a5a2e" stroke-width="1.4"/><rect x="2" y="2" width="26" height="4.5" rx="2.2" fill="#b07a44" stroke="#7a5028" stroke-width="1.2"/><rect x="2" y="15.5" width="26" height="4.5" rx="2.2" fill="#b07a44" stroke="#7a5028" stroke-width="1.2"/><path d="M9 9.5h12M9 12.5h8" stroke="#8a5a2e" stroke-width="1.1" stroke-linecap="round"/></svg>My part<span class="hint"> · unroll</span></summary>
+            <summary><svg viewBox="0 0 34 20" aria-hidden="true"><rect x="3" y="3" width="28" height="14" rx="7" fill="#efd9a7" stroke="#8a5a2e" stroke-width="1.3"/><ellipse cx="6" cy="10" rx="3" ry="7" fill="#e3c68b" stroke="#8a5a2e" stroke-width="1.3"/><ellipse cx="6" cy="10" rx="1.2" ry="3" fill="none" stroke="#8a5a2e" stroke-width="1"/><path d="M19 3v14" stroke="#a8302b" stroke-width="2.4"/><path d="M19 17l-3 3M19 17l3 3" stroke="#a8302b" stroke-width="1.6" stroke-linecap="round"/></svg><span>my part</span></summary>
             <div class="scroll-body">
               <div class="rod" aria-hidden="true"></div>
               <div class="unroll"><div><div class="paper">
                 <h4>What I brought to Wave</h4>
                 <ul>
-                  <li>The idea was mine</li>
-                  <li>Owned the frontend and the backend</li>
-                  <li>Designed and built it end to end</li>
+                  <li>The idea</li>
+                  <li>Frontend &amp; backend ownership</li>
+                  <li>Design &amp; development, end to end</li>
                 </ul>
-                <p class="also">And also</p>
-                <div class="chips"><span>Marketing</span><span>Pitch</span><span>Logo design</span></div>
-                <p class="sign">— Sachi</p>
+                <div class="chips"><span>marketing</span><span>pitch</span><span>logo</span></div>
                 <span class="seal" aria-hidden="true">S</span>
               </div></div></div>
               <div class="rod" aria-hidden="true"></div>
