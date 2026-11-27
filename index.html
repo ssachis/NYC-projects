@@ -7,7 +7,7 @@
 <meta name="description" content="Hackathon and NYU class projects Sachi Singh has built in New York since September 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Sans:opsz,wght@9..40,400..600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=DM+Sans:opsz,wght@9..40,400..600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#fceec2;--ink:#1f3326;--muted:#5f6d62;--line:#ddd6c4;--leaf:#2f6b45;--paper:#fffcf3;--petal:#e07a5f;--sun:#f2c14e;--lilac:#b39ddb;--sage:#8fae8b}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121a15;--ink:#eef3ec;--muted:#a3b2a6;--line:#2c3a30;--leaf:#8fd1a2;--paper:#1a241d;--petal:#f09a80;--sun:#f2c94e;--lilac:#c6b3ec;--sage:#5d7d61}}
@@ -158,112 +158,6 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
 .award-t{display:flex;flex-direction:column;align-items:center;line-height:1.05;padding:0 4px;text-align:center}
 .award-t small{font:600 8.5px/1.3 system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#e9cf8c}
 .award-t b{font:700 11px/1 Georgia,"Times New Roman",serif;letter-spacing:.22em;text-transform:uppercase;padding-left:.22em;background:linear-gradient(#fff1c4,#e2b65a 60%,#c8963c);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-/* "My part": a little paper scroll with gold knobs that unrolls on click */
-.row details.scroll{margin-top:10px}
-.scroll > summary{gap:8px;cursor:pointer;padding:0;color:#6b4423}
-.scroll > summary::before{display:none}
-.scroll > summary svg{width:52px;height:38px;flex:none;overflow:visible;animation:bob 3.2s ease-in-out infinite}
-.scroll > summary svg *{transform-box:fill-box}
-.scroll .peekpaper{transform-origin:50% 0;animation:peek 4.8s cubic-bezier(.4,0,.2,1) infinite}
-.scroll .ribbon{transform-origin:50% 0;animation:sway 2.4s ease-in-out infinite}
-.scroll .spark{transform-origin:center;animation:twinkle 2.6s ease-in-out infinite}
-.scroll .spark.s2{animation-delay:-.9s}.scroll .spark.s3{animation-delay:-1.7s}
-.scroll > summary:hover svg{animation-play-state:paused}
-.scroll > summary:hover .peekpaper{animation:none;transform:translateY(9px)}
-.scroll > summary:hover .spark{animation-duration:.9s}
-.scroll > summary span{display:inline-block;font:400 23px/1 'Great Vibes',cursive;transition:transform .25s ease}
-.scroll > summary:hover span{transform:rotate(-4deg) scale(1.06)}
-.scroll[open] > summary svg,.scroll[open] .peekpaper,.scroll[open] .ribbon,.scroll[open] .spark{animation:none}
-@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-3px) rotate(2deg)}}
-@keyframes peek{0%,45%,100%{transform:translateY(0)}60%,78%{transform:translateY(10px)}}
-@keyframes sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
-@keyframes twinkle{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:1;transform:scale(1.1) rotate(45deg)}}
-.scroll-body{position:relative;width:min(300px,calc(100% - 44px));margin:14px 0 6px 22px;filter:drop-shadow(0 8px 10px rgba(80,50,20,.22))}
-.roll{position:relative;height:24px;border-radius:12px;z-index:2;
-  background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 38%,rgba(110,70,25,.38) 100%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 26' fill='none' stroke='%23ffffff' stroke-opacity='.45' stroke-width='1'%3E%3Cpath d='M0 13c10-10 30-10 40 0M0 13c10 10 30 10 40 0'/%3E%3Ccircle cx='20' cy='13' r='3'/%3E%3C/svg%3E") 0 0/34px 24px,#e6cd98}
-.roll.top{margin:0 -6px}
-.roll.bottom{margin:0 -10px 0 2px}
-.knob{position:absolute;top:50%;width:15px;height:15px;margin-top:-7.5px;border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,#fbecb8,#cfa64c 45%,#7e5d1d 85%)}
-.knob::before{content:"";position:absolute;top:3.5px;width:9px;height:8px;border-radius:2px;background:linear-gradient(#e9cd7e,#9c7628)}
-.knob.l{left:-18px}.knob.l::before{right:-6px}
-.knob.r{right:-18px}.knob.r::before{left:-6px}
-.unroll{display:grid;grid-template-rows:1fr}
-.scroll[open] .unroll{animation:unroll .9s cubic-bezier(.22,.9,.25,1)}
-@keyframes unroll{from{grid-template-rows:0fr}to{grid-template-rows:1fr}}
-.unroll > div{overflow:hidden;min-height:0}
-.paper{position:relative;margin:-8px 0;padding:24px 34px 22px;text-align:center;color:#33251a;
-  background:radial-gradient(ellipse 70% 60% at 50% 42%,#fffaf0 0%,#f6e6c2 55%,#e7cd97 100%)}
-.paper::before,.paper::after{content:"";position:absolute;top:0;bottom:0;width:16px;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 36' fill='none' stroke='%23e6c57e' stroke-width='1.1' stroke-linecap='round'%3E%3Cpath d='M9 0c6 5 6 12 0 18s-6 13 0 18'/%3E%3Cpath d='M9 9c-4-1-6 2-4 4s4 0 3-2'/%3E%3Cpath d='M9 27c4 1 6-2 4-4s-4 0-3 2'/%3E%3C/svg%3E") center 0/14px 28px repeat-y,linear-gradient(90deg,#2f5b43 0 3px,#6e2b2a 3px)}
-.paper::before{left:0}
-.paper::after{right:0;transform:scaleX(-1)}
-.paper h4{margin:0 0 8px;font:400 30px/1 'Great Vibes',cursive;color:#3a2716}
-.paper p{margin:0;font:italic 400 14.5px/1.65 'Fraunces',Georgia,serif}
-.paper .also{margin-top:10px;font-size:13px;color:#6b4a2a}
-.paper .also b{font-weight:500}
-@media (prefers-reduced-motion: reduce){.scroll > summary svg,.scroll .peekpaper,.scroll .ribbon,.scroll .spark,.scroll[open] .unroll{animation:none}.scroll .spark{opacity:1}}
-
-/* side layout: project text on one side, the scroll on the other (alternate .left / .right) */
-.split{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:8px 30px;align-items:start}
-.split.left{grid-template-columns:250px minmax(0,1fr)}
-.split.left .scroll{order:-1}
-.split .info > .line{margin-top:6px}
-.split .scroll{margin-top:14px}
-.split .scroll > summary{display:flex;flex-direction:column;align-items:center;gap:2px}
-.split .scroll > summary svg{width:58px;height:42px}
-.split .scroll > summary span{font-size:20px}
-.split .scroll[open] > summary svg{display:none}
-.split .scroll[open] > summary span{font-size:19px;opacity:.75}
-.split .scroll-body{width:auto;margin:4px 18px 0}
-.split .paper{padding:20px 26px 18px}
-.split .paper h4{font-size:27px}
-.split .paper p{font-size:13.5px}
-.split .paper .also{font-size:12.5px}
-@media (max-width:700px){.split,.split.left{grid-template-columns:1fr}.split.left .scroll{order:0}.split .scroll-body{margin:4px 20px 0}}
-
-/* wide screens: the note hangs in the empty margin beside the card */
-@media (min-width:1380px){
-  .row .body{position:relative}
-  .split,.split.left{display:block}
-  .split .scroll{position:absolute;top:70px;width:250px;margin:0}
-  .split.right .scroll{left:calc(100% + 48px)}
-  .split.left .scroll{right:calc(100% + 48px)}
-}
-
-/* small note in the margin */
-@media (min-width:1380px){
-  .split .scroll{width:200px;top:84px}
-  .split.right .scroll{left:calc(100% + 40px)}
-  .split.left .scroll{right:calc(100% + 40px)}
-  .split .scroll-body{margin:2px 12px 0}
-  .split .roll{height:16px;border-radius:8px}
-  .split .knob{width:11px;height:11px;margin-top:-5.5px}
-  .split .knob::before{top:2.5px;width:6px;height:6px}
-  .split .knob.l{left:-13px}.split .knob.r{right:-13px}
-  .split .knob.l::before{right:-4px}.split .knob.r::before{left:-4px}
-  .split .paper{margin:-5px 0;padding:14px 18px 12px}
-  .split .paper::before,.split .paper::after{width:11px;background-size:9px 18px,auto}
-  .split .paper h4{font-size:22px;margin-bottom:5px}
-  .split .paper p{font-size:11.5px;line-height:1.6}
-  .split .paper .also{font-size:10.5px;margin-top:6px}
-}
-
-/* designer pass: readable teaser, bigger icon, aligned with the title */
-.scroll .teaser{display:block;font:600 10.5px/1.3 'DM Sans',system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.scroll[open] .teaser{display:none}
-.split .scroll > summary svg{width:74px;height:54px}
-.split .scroll > summary span{font-size:24px}
-@media (min-width:1380px){
-  .row .body{position:static}
-  .split{position:relative}
-  .split .scroll{top:-46px;width:220px}
-  .split .paper{padding:16px 20px 14px}
-  .split .paper h4{font-size:25px}
-  .split .paper p{font-size:12.5px}
-  .split .paper .also{font-size:11.5px}
-}
 </style>
 </head>
 <body>
@@ -288,33 +182,12 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
             <span class="peek-cap"><h3 class="t-blue">Wave</h3><em>Same idea. Different outcomes.</em></span>
             <span class="peek-go">Open <span aria-hidden="true">↗</span></span>
           </a>
-          <div class="split right">
-            <div class="info">
-              <p class="line">Paste a YouTube Short and see other Shorts on the same idea spread out as waves, then remove creator size to see which ones truly beat their usual reach, and why.</p>
-              <div class="links"><a href="https://the-algorithm.sachi2002-pratap.workers.dev/">Try it live<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/the-algorithm">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Nov 2026 · Creator Hack · Shortlisted (2nd)</span></div>
-              <details>
-                <summary>Watch the demo</summary>
-                <div class="shot"><video controls playsinline preload="none" poster="img/wave-video.jpg" aria-label="Wave demo video"><source src="video/wave.mp4" type="video/mp4"></video></div>
-              </details>
-            </div>
-            <details class="scroll">
-              <summary><svg class="mini" viewBox="0 0 64 46" aria-hidden="true"><defs><radialGradient id="gk" cx=".35" cy=".3"><stop offset="0" stop-color="#fbecb8"/><stop offset=".5" stop-color="#cfa64c"/><stop offset="1" stop-color="#7e5d1d"/></radialGradient><linearGradient id="pr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9ebc8"/><stop offset=".45" stop-color="#ead09a"/><stop offset="1" stop-color="#b98f55"/></linearGradient></defs>
-<g class="peekpaper"><rect x="16" y="10" width="32" height="20" rx="1.5" fill="#f8ecce" stroke="#b08550" stroke-width=".8"/><path d="M21 19h22M21 23h16" stroke="#a07a48" stroke-width="1" stroke-linecap="round"/></g>
-<rect x="12" y="6" width="40" height="13" rx="6.5" fill="url(#pr)" stroke="#8a6534" stroke-width=".8"/><path d="M16 9.5h32" stroke="#fff" stroke-opacity=".55" stroke-width="1.2" stroke-linecap="round"/>
-<rect x="7" y="10.5" width="6" height="4" fill="#b8913c"/><rect x="51" y="10.5" width="6" height="4" fill="#b8913c"/><circle cx="6.5" cy="12.5" r="3.6" fill="url(#gk)"/><circle cx="57.5" cy="12.5" r="3.6" fill="url(#gk)"/>
-<g class="ribbon"><path d="M32 6v13" stroke="#6e2b2a" stroke-width="3"/><path d="M32 19c-4 3-6 7-5 10M32 19c3 3 6 6 7 10" stroke="#6e2b2a" stroke-width="1.8" fill="none" stroke-linecap="round"/></g>
-<g fill="#e2b65a"><path class="spark s1" d="M5 2l1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"/><path class="spark s2" d="M60 22l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/><path class="spark s3" d="M52 0l.7 1.7 1.7.7-1.7.7-.7 1.7-.7-1.7-1.7-.7 1.7-.7z"/></g></svg><span>my part</span><small class="teaser">idea · full stack · design</small></summary>
-              <div class="scroll-body">
-                <div class="roll top" aria-hidden="true"><i class="knob l"></i><i class="knob r"></i></div>
-                <div class="unroll"><div><div class="paper">
-                  <h4>My part</h4>
-                  <p>The idea was mine.<br>Frontend &amp; backend, owned.<br>Designed &amp; built, end to end.</p>
-                  <p class="also">My teammates took on <b>marketing</b>, <b>the pitch</b> &amp; <b>the logo</b></p>
-                </div></div></div>
-                <div class="roll bottom" aria-hidden="true"><i class="knob l"></i><i class="knob r"></i></div>
-              </div>
-            </details>
-          </div>
+          <p class="line">Paste a YouTube Short and see other Shorts on the same idea spread out as waves, then remove creator size to see which ones truly beat their usual reach, and why.</p>
+          <div class="links"><a href="https://the-algorithm.sachi2002-pratap.workers.dev/">Try it live<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/the-algorithm">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Nov 2026 · Creator Hack · Shortlisted (2nd)</span></div>
+          <details>
+            <summary>Watch the demo</summary>
+            <div class="shot"><video controls playsinline preload="none" poster="img/wave-video.jpg" aria-label="Wave demo video"><source src="video/wave.mp4" type="video/mp4"></video></div>
+          </details>
         </div>
       </li>
       <li class="row">
@@ -326,33 +199,12 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
             <span class="peek-cap"><h3 class="t-purple">Elsewhere</h3><em>Your idea already exists elsewhere.</em></span>
             <span class="peek-go">Open <span aria-hidden="true">↗</span></span>
           </a>
-          <div class="split left">
-            <div class="info">
-              <p class="line">Type in an idea and see who already solved it in another industry, shown as planets around it: partners, inspirations and the ones that failed, with a source for every claim.</p>
-              <div class="links"><a href="https://elsewhere-8t65.onrender.com/">Try it live<span aria-hidden="true"> ↗</span></a><a href="https://github.com/arnabd1999/Hackathon-elsewhere">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Nov 2026 · Ground Truth · Won</span></div>
-              <details>
-                <summary>Watch the demo</summary>
-                <div class="shot"><video controls playsinline preload="none" poster="img/elsewhere-video.jpg" aria-label="Elsewhere demo video"><source src="video/elsewhere.mp4" type="video/mp4"></video></div>
-              </details>
-            </div>
-            <details class="scroll">
-              <summary><svg class="mini" viewBox="0 0 64 46" aria-hidden="true"><defs><radialGradient id="gk1" cx=".35" cy=".3"><stop offset="0" stop-color="#fbecb8"/><stop offset=".5" stop-color="#cfa64c"/><stop offset="1" stop-color="#7e5d1d"/></radialGradient><linearGradient id="pr1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9ebc8"/><stop offset=".45" stop-color="#ead09a"/><stop offset="1" stop-color="#b98f55"/></linearGradient></defs>
-<g class="peekpaper"><rect x="16" y="10" width="32" height="20" rx="1.5" fill="#f8ecce" stroke="#b08550" stroke-width=".8"/><path d="M21 19h22M21 23h16" stroke="#a07a48" stroke-width="1" stroke-linecap="round"/></g>
-<rect x="12" y="6" width="40" height="13" rx="6.5" fill="url(#pr1)" stroke="#8a6534" stroke-width=".8"/><path d="M16 9.5h32" stroke="#fff" stroke-opacity=".55" stroke-width="1.2" stroke-linecap="round"/>
-<rect x="7" y="10.5" width="6" height="4" fill="#b8913c"/><rect x="51" y="10.5" width="6" height="4" fill="#b8913c"/><circle cx="6.5" cy="12.5" r="3.6" fill="url(#gk1)"/><circle cx="57.5" cy="12.5" r="3.6" fill="url(#gk1)"/>
-<g class="ribbon"><path d="M32 6v13" stroke="#6e2b2a" stroke-width="3"/><path d="M32 19c-4 3-6 7-5 10M32 19c3 3 6 6 7 10" stroke="#6e2b2a" stroke-width="1.8" fill="none" stroke-linecap="round"/></g>
-<g fill="#e2b65a"><path class="spark s1" d="M5 2l1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"/><path class="spark s2" d="M60 22l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/><path class="spark s3" d="M52 0l.7 1.7 1.7.7-1.7.7-.7 1.7-.7-1.7-1.7-.7 1.7-.7z"/></g></svg><span>my part</span><small class="teaser">idea · design · frontend</small></summary>
-              <div class="scroll-body">
-                <div class="roll top" aria-hidden="true"><i class="knob l"></i><i class="knob r"></i></div>
-                <div class="unroll"><div><div class="paper">
-                  <h4>My part</h4>
-                    <p>Everything but the backend:<br>the idea, the design<br>&amp; the frontend.</p>
-                    <p class="also">A teammate built the backend.</p>
-                  </div></div></div>
-                <div class="roll bottom" aria-hidden="true"><i class="knob l"></i><i class="knob r"></i></div>
-              </div>
-            </details>
-          </div>
+          <p class="line">Type in an idea and see who already solved it in another industry, shown as planets around it: partners, inspirations and the ones that failed, with a source for every claim.</p>
+          <div class="links"><a href="https://elsewhere-8t65.onrender.com/">Try it live<span aria-hidden="true"> ↗</span></a><a href="https://github.com/arnabd1999/Hackathon-elsewhere">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Nov 2026 · Ground Truth · Won</span></div>
+          <details>
+            <summary>Watch the demo</summary>
+            <div class="shot"><video controls playsinline preload="none" poster="img/elsewhere-video.jpg" aria-label="Elsewhere demo video"><source src="video/elsewhere.mp4" type="video/mp4"></video></div>
+          </details>
         </div>
       </li>
       <li class="row">
@@ -363,32 +215,12 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
             <span class="peek-cap"><h3 class="t-green">LookUp NYC</h3><em>Stop. Look up.</em></span>
             <span class="peek-go">Open <span aria-hidden="true">↗</span></span>
           </a>
-          <div class="split right">
-            <div class="info">
-              <p class="line">A walking guide that shows you exactly where to look on New York’s buildings, then plays the story behind each one.</p>
-              <div class="links"><a href="https://ssachis.github.io/LookUp-NYC/">Try it live<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/LookUp-NYC">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Oct 2026 · Hackathon · Shortlisted</span></div>
-              <details>
-                <summary>Watch the demo</summary>
-                <div class="shot"><video controls playsinline preload="none" poster="img/lookup-nyc-video.jpg" aria-label="LookUp NYC demo video"><source src="video/lookup-nyc.mp4" type="video/mp4"></video></div>
-              </details>
-            </div>
-            <details class="scroll">
-              <summary><svg class="mini" viewBox="0 0 64 46" aria-hidden="true"><defs><radialGradient id="gk2" cx=".35" cy=".3"><stop offset="0" stop-color="#fbecb8"/><stop offset=".5" stop-color="#cfa64c"/><stop offset="1" stop-color="#7e5d1d"/></radialGradient><linearGradient id="pr2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9ebc8"/><stop offset=".45" stop-color="#ead09a"/><stop offset="1" stop-color="#b98f55"/></linearGradient></defs>
-<g class="peekpaper"><rect x="16" y="10" width="32" height="20" rx="1.5" fill="#f8ecce" stroke="#b08550" stroke-width=".8"/><path d="M21 19h22M21 23h16" stroke="#a07a48" stroke-width="1" stroke-linecap="round"/></g>
-<rect x="12" y="6" width="40" height="13" rx="6.5" fill="url(#pr2)" stroke="#8a6534" stroke-width=".8"/><path d="M16 9.5h32" stroke="#fff" stroke-opacity=".55" stroke-width="1.2" stroke-linecap="round"/>
-<rect x="7" y="10.5" width="6" height="4" fill="#b8913c"/><rect x="51" y="10.5" width="6" height="4" fill="#b8913c"/><circle cx="6.5" cy="12.5" r="3.6" fill="url(#gk2)"/><circle cx="57.5" cy="12.5" r="3.6" fill="url(#gk2)"/>
-<g class="ribbon"><path d="M32 6v13" stroke="#6e2b2a" stroke-width="3"/><path d="M32 19c-4 3-6 7-5 10M32 19c3 3 6 6 7 10" stroke="#6e2b2a" stroke-width="1.8" fill="none" stroke-linecap="round"/></g>
-<g fill="#e2b65a"><path class="spark s1" d="M5 2l1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"/><path class="spark s2" d="M60 22l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/><path class="spark s3" d="M52 0l.7 1.7 1.7.7-1.7.7-.7 1.7-.7-1.7-1.7-.7 1.7-.7z"/></g></svg><span>my part</span><small class="teaser">co-owned · idea &amp; code</small></summary>
-              <div class="scroll-body">
-                <div class="roll top" aria-hidden="true"><i class="knob l"></i><i class="knob r"></i></div>
-                <div class="unroll"><div><div class="paper">
-                  <h4>My part</h4>
-                    <p>Co-owned, start to finish.<br>The idea and the code<br>were shared equally.</p>
-                  </div></div></div>
-                <div class="roll bottom" aria-hidden="true"><i class="knob l"></i><i class="knob r"></i></div>
-              </div>
-            </details>
-          </div>
+          <p class="line">A walking guide that shows you exactly where to look on New York’s buildings, then plays the story behind each one.</p>
+          <div class="links"><a href="https://ssachis.github.io/LookUp-NYC/">Try it live<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/LookUp-NYC">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Oct 2026 · Hackathon · Shortlisted</span></div>
+          <details>
+            <summary>Watch the demo</summary>
+            <div class="shot"><video controls playsinline preload="none" poster="img/lookup-nyc-video.jpg" aria-label="LookUp NYC demo video"><source src="video/lookup-nyc.mp4" type="video/mp4"></video></div>
+          </details>
         </div>
       </li>
       <li class="row">
@@ -399,32 +231,12 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
             <span class="peek-cap"><h3 class="t-brown">WalkWithMe</h3><em>The subway, with zero signal.</em></span>
             <span class="peek-go">Open <span aria-hidden="true">↗</span></span>
           </a>
-          <div class="split left">
-            <div class="info">
-              <p class="line">An NYC subway guide that still works underground: it counts your stops and tells you where to change, even with no signal. Built in a 1-hour hackathon.</p>
-              <div class="links"><a href="https://ssachis.github.io/WalkWithMe/">Try it live<span aria-hidden="true"> ↗</span></a><a href="https://ssachis.github.io/WalkWithMe/simulation/">See simulation<span aria-hidden="true"> ↗</span></a><span class="peek-when">Nov 2026 · WinC Builder Sprint · 1-hour hackathon</span></div>
-              <details>
-                <summary>Watch the demo</summary>
-                <div class="shot"><video controls playsinline preload="none" poster="img/walkwithme-video.jpg" aria-label="WalkWithMe demo video"><source src="video/walkwithme.mp4" type="video/mp4"></video></div>
-              </details>
-            </div>
-            <details class="scroll">
-              <summary><svg class="mini" viewBox="0 0 64 46" aria-hidden="true"><defs><radialGradient id="gk3" cx=".35" cy=".3"><stop offset="0" stop-color="#fbecb8"/><stop offset=".5" stop-color="#cfa64c"/><stop offset="1" stop-color="#7e5d1d"/></radialGradient><linearGradient id="pr3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9ebc8"/><stop offset=".45" stop-color="#ead09a"/><stop offset="1" stop-color="#b98f55"/></linearGradient></defs>
-<g class="peekpaper"><rect x="16" y="10" width="32" height="20" rx="1.5" fill="#f8ecce" stroke="#b08550" stroke-width=".8"/><path d="M21 19h22M21 23h16" stroke="#a07a48" stroke-width="1" stroke-linecap="round"/></g>
-<rect x="12" y="6" width="40" height="13" rx="6.5" fill="url(#pr3)" stroke="#8a6534" stroke-width=".8"/><path d="M16 9.5h32" stroke="#fff" stroke-opacity=".55" stroke-width="1.2" stroke-linecap="round"/>
-<rect x="7" y="10.5" width="6" height="4" fill="#b8913c"/><rect x="51" y="10.5" width="6" height="4" fill="#b8913c"/><circle cx="6.5" cy="12.5" r="3.6" fill="url(#gk3)"/><circle cx="57.5" cy="12.5" r="3.6" fill="url(#gk3)"/>
-<g class="ribbon"><path d="M32 6v13" stroke="#6e2b2a" stroke-width="3"/><path d="M32 19c-4 3-6 7-5 10M32 19c3 3 6 6 7 10" stroke="#6e2b2a" stroke-width="1.8" fill="none" stroke-linecap="round"/></g>
-<g fill="#e2b65a"><path class="spark s1" d="M5 2l1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"/><path class="spark s2" d="M60 22l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/><path class="spark s3" d="M52 0l.7 1.7 1.7.7-1.7.7-.7 1.7-.7-1.7-1.7-.7 1.7-.7z"/></g></svg><span>my part</span><small class="teaser">solo · everything</small></summary>
-              <div class="scroll-body">
-                <div class="roll top" aria-hidden="true"><i class="knob l"></i><i class="knob r"></i></div>
-                <div class="unroll"><div><div class="paper">
-                  <h4>My part</h4>
-                    <p>A solo project.<br>Idea, design &amp; code,<br>all mine, in one hour.</p>
-                  </div></div></div>
-                <div class="roll bottom" aria-hidden="true"><i class="knob l"></i><i class="knob r"></i></div>
-              </div>
-            </details>
-          </div>
+          <p class="line">An NYC subway guide that still works underground: it counts your stops and tells you where to change, even with no signal. Built in a 1-hour hackathon.</p>
+          <div class="links"><a href="https://ssachis.github.io/WalkWithMe/">Try it live<span aria-hidden="true"> ↗</span></a><a href="https://ssachis.github.io/WalkWithMe/simulation/">See simulation<span aria-hidden="true"> ↗</span></a><span class="peek-when">Nov 2026 · WinC Builder Sprint · 1-hour hackathon</span></div>
+          <details>
+            <summary>Watch the demo</summary>
+            <div class="shot"><video controls playsinline preload="none" poster="img/walkwithme-video.jpg" aria-label="WalkWithMe demo video"><source src="video/walkwithme.mp4" type="video/mp4"></video></div>
+          </details>
         </div>
       </li>
       <li class="row more" id="more-hackathons-bq" hidden>
@@ -435,32 +247,12 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
             <span class="peek-cap"><h3 class="t-brown">BusyQueue</h3><em>Snap an invoice. Watch it fill itself in.</em></span>
             <span class="peek-go">Open <span aria-hidden="true">↗</span></span>
           </a>
-          <div class="split right">
-            <div class="info">
-              <p class="line">An AI back office for small businesses: snap a vendor invoice and it becomes an editable record, with uncertain fields flagged.</p>
-              <div class="links"><a href="https://ssachis.github.io/BusyQueue/demo/">Try the demo<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/BusyQueue">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Oct 2026 · Money Talks 2 · Shortlisted</span></div>
-              <details>
-                <summary>Watch the demo</summary>
-                <div class="shot"><video controls playsinline preload="none" poster="img/busyqueue-video.jpg" aria-label="BusyQueue demo video"><source src="video/busyqueue.mp4" type="video/mp4"></video></div>
-              </details>
-            </div>
-            <details class="scroll">
-              <summary><svg class="mini" viewBox="0 0 64 46" aria-hidden="true"><defs><radialGradient id="gk4" cx=".35" cy=".3"><stop offset="0" stop-color="#fbecb8"/><stop offset=".5" stop-color="#cfa64c"/><stop offset="1" stop-color="#7e5d1d"/></radialGradient><linearGradient id="pr4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9ebc8"/><stop offset=".45" stop-color="#ead09a"/><stop offset="1" stop-color="#b98f55"/></linearGradient></defs>
-<g class="peekpaper"><rect x="16" y="10" width="32" height="20" rx="1.5" fill="#f8ecce" stroke="#b08550" stroke-width=".8"/><path d="M21 19h22M21 23h16" stroke="#a07a48" stroke-width="1" stroke-linecap="round"/></g>
-<rect x="12" y="6" width="40" height="13" rx="6.5" fill="url(#pr4)" stroke="#8a6534" stroke-width=".8"/><path d="M16 9.5h32" stroke="#fff" stroke-opacity=".55" stroke-width="1.2" stroke-linecap="round"/>
-<rect x="7" y="10.5" width="6" height="4" fill="#b8913c"/><rect x="51" y="10.5" width="6" height="4" fill="#b8913c"/><circle cx="6.5" cy="12.5" r="3.6" fill="url(#gk4)"/><circle cx="57.5" cy="12.5" r="3.6" fill="url(#gk4)"/>
-<g class="ribbon"><path d="M32 6v13" stroke="#6e2b2a" stroke-width="3"/><path d="M32 19c-4 3-6 7-5 10M32 19c3 3 6 6 7 10" stroke="#6e2b2a" stroke-width="1.8" fill="none" stroke-linecap="round"/></g>
-<g fill="#e2b65a"><path class="spark s1" d="M5 2l1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"/><path class="spark s2" d="M60 22l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/><path class="spark s3" d="M52 0l.7 1.7 1.7.7-1.7.7-.7 1.7-.7-1.7-1.7-.7 1.7-.7z"/></g></svg><span>my part</span><small class="teaser">co-owned · everything</small></summary>
-              <div class="scroll-body">
-                <div class="roll top" aria-hidden="true"><i class="knob l"></i><i class="knob r"></i></div>
-                <div class="unroll"><div><div class="paper">
-                  <h4>My part</h4>
-                    <p>Co-owned everything:<br>the idea, the design<br>&amp; the code.</p>
-                  </div></div></div>
-                <div class="roll bottom" aria-hidden="true"><i class="knob l"></i><i class="knob r"></i></div>
-              </div>
-            </details>
-          </div>
+          <p class="line">An AI back office for small businesses: snap a vendor invoice and it becomes an editable record, with uncertain fields flagged.</p>
+          <div class="links"><a href="https://ssachis.github.io/BusyQueue/demo/">Try the demo<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/BusyQueue">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Oct 2026 · Money Talks 2 · Shortlisted</span></div>
+          <details>
+            <summary>Watch the demo</summary>
+            <div class="shot"><video controls playsinline preload="none" poster="img/busyqueue-video.jpg" aria-label="BusyQueue demo video"><source src="video/busyqueue.mp4" type="video/mp4"></video></div>
+          </details>
         </div>
       </li>
       <li class="row more" id="more-hackathons" hidden>
@@ -471,28 +263,8 @@ footer em{font-family:'Fraunces',Georgia,serif;color:var(--ink)}
             <span class="peek-cap"><h3 class="t-blue">Signal</h3><em>Is your resume lying?</em></span>
             <span class="peek-go">Open <span aria-hidden="true">↗</span></span>
           </a>
-          <div class="split left">
-            <div class="info">
-              <p class="line">Screens a batch of resumes for hidden prompt injections and duplicate submissions, with the evidence for each.</p>
-              <div class="links"><a href="https://ssachis.github.io/signal/">Try the demo<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/signal">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Sep 2026 · Hackathon</span></div>
-            </div>
-            <details class="scroll">
-              <summary><svg class="mini" viewBox="0 0 64 46" aria-hidden="true"><defs><radialGradient id="gk5" cx=".35" cy=".3"><stop offset="0" stop-color="#fbecb8"/><stop offset=".5" stop-color="#cfa64c"/><stop offset="1" stop-color="#7e5d1d"/></radialGradient><linearGradient id="pr5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9ebc8"/><stop offset=".45" stop-color="#ead09a"/><stop offset="1" stop-color="#b98f55"/></linearGradient></defs>
-<g class="peekpaper"><rect x="16" y="10" width="32" height="20" rx="1.5" fill="#f8ecce" stroke="#b08550" stroke-width=".8"/><path d="M21 19h22M21 23h16" stroke="#a07a48" stroke-width="1" stroke-linecap="round"/></g>
-<rect x="12" y="6" width="40" height="13" rx="6.5" fill="url(#pr5)" stroke="#8a6534" stroke-width=".8"/><path d="M16 9.5h32" stroke="#fff" stroke-opacity=".55" stroke-width="1.2" stroke-linecap="round"/>
-<rect x="7" y="10.5" width="6" height="4" fill="#b8913c"/><rect x="51" y="10.5" width="6" height="4" fill="#b8913c"/><circle cx="6.5" cy="12.5" r="3.6" fill="url(#gk5)"/><circle cx="57.5" cy="12.5" r="3.6" fill="url(#gk5)"/>
-<g class="ribbon"><path d="M32 6v13" stroke="#6e2b2a" stroke-width="3"/><path d="M32 19c-4 3-6 7-5 10M32 19c3 3 6 6 7 10" stroke="#6e2b2a" stroke-width="1.8" fill="none" stroke-linecap="round"/></g>
-<g fill="#e2b65a"><path class="spark s1" d="M5 2l1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"/><path class="spark s2" d="M60 22l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/><path class="spark s3" d="M52 0l.7 1.7 1.7.7-1.7.7-.7 1.7-.7-1.7-1.7-.7 1.7-.7z"/></g></svg><span>my part</span><small class="teaser">solo · everything</small></summary>
-              <div class="scroll-body">
-                <div class="roll top" aria-hidden="true"><i class="knob l"></i><i class="knob r"></i></div>
-                <div class="unroll"><div><div class="paper">
-                  <h4>My part</h4>
-                    <p>A solo project.<br>Idea, design &amp; code,<br>all mine.</p>
-                  </div></div></div>
-                <div class="roll bottom" aria-hidden="true"><i class="knob l"></i><i class="knob r"></i></div>
-              </div>
-            </details>
-          </div>
+          <p class="line">Screens a batch of resumes for hidden prompt injections and duplicate submissions, with the evidence for each.</p>
+          <div class="links"><a href="https://ssachis.github.io/signal/">Try the demo<span aria-hidden="true"> ↗</span></a><a href="https://github.com/ssachis/signal">GitHub<span aria-hidden="true"> ↗</span></a><span class="peek-when">Sep 2026 · Hackathon</span></div>
         </div>
       </li>
     </ol>
